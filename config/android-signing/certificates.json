@@ -1,0 +1,7 @@
+{
+  "schema": 1,
+  "releaseSha256": "76a49e63d3f161b4ab49dca613c62827668f4cc20100b873be6651346fd9cf87",
+  "legacySha256": "f9fe2fde68450d0f8cc6968d78217b07c18422abbe2c72fc35ac64013b958eb1",
+  "rotationMinSdk": 28,
+  "lineageSha256": "dd3519a3d0c4c7c8709e98b2d6479e14dd722a14ba0f3c7d97f63f410761265c"
+}

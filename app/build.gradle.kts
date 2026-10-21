@@ -10,8 +10,8 @@ android {
         applicationId = "dev.dsh.mobile"
         minSdk = 26
         targetSdk = 36
-        versionCode = 40
-        versionName = "0.2.0"
+        versionCode = 41
+        versionName = "0.2.1-rc.1"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -64,7 +64,7 @@ dependencies {
     androidTestImplementation("com.squareup.okhttp3:okhttp-tls:4.12.0")
 }
 
-// License texts are readable ZIP assets in every future APK; no APK is built by this task.
+// License texts are readable ZIP assets in every APK.
 val prepareLegalAssets by tasks.registering(Sync::class) {
     into(layout.buildDirectory.dir("generated/legal-assets/licenses"))
     from(rootProject.file("LICENSE"))

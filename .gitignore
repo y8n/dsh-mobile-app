@@ -19,3 +19,11 @@ infra/diagnostics/.cf/
 infra/diagnostics/.wrangler/
 
 .kotlin/
+
+# Android signing secrets and local distribution outputs
+*.p12
+*.pfx
+*.pk8
+/key.properties
+/signing.properties
+/dist/

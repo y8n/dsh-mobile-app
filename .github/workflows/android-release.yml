@@ -1,0 +1,87 @@
+name: Signed Android
+run-name: Signed Android ${{ inputs.expected_sha }}
+on:
+  workflow_dispatch:
+    inputs:
+      expected_sha:
+        description: 'Full pushed main commit to build and sign'
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: signed-android
+  cancel-in-progress: false
+jobs:
+  build:
+    if: github.repository == 'y8n/dsh-mobile-app' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Verify immutable build input
+        env:
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
+        run: |
+          python3 - <<'PY'
+          import os,re,subprocess
+          sha=os.environ['EXPECTED_SHA']
+          assert re.fullmatch('[0-9a-f]{40}',sha)
+          assert subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip()==sha
+          assert not subprocess.check_output(['git','status','--porcelain'],text=True).strip()
+          PY
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+        with:
+          packages: 'platform-tools platforms;android-36 build-tools;35.0.0'
+      - uses: gradle/actions/setup-gradle@v4
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '24'
+      - name: Check source, licenses and tests; build unsigned release
+        run: |
+          node scripts/opensource/check.mjs
+          node scripts/licenses/check.mjs
+          node scripts/releases/check-compatibility.mjs
+          ./gradlew :app:testReleaseUnitTest :core:data:testDebugUnitTest :core:protocol:test :app:lintRelease :app:assembleRelease
+      - name: Sign and verify release APK
+        env:
+          DSH_ANDROID_RELEASE_KEYSTORE_BASE64: ${{ secrets.DSH_ANDROID_RELEASE_KEYSTORE_BASE64 }}
+          DSH_ANDROID_RELEASE_PASSWORD: ${{ secrets.DSH_ANDROID_RELEASE_PASSWORD }}
+          DSH_ANDROID_LEGACY_KEYSTORE_BASE64: ${{ secrets.DSH_ANDROID_LEGACY_KEYSTORE_BASE64 }}
+          DSH_ANDROID_LEGACY_PASSWORD: ${{ secrets.DSH_ANDROID_LEGACY_PASSWORD }}
+        run: |
+          python3 - <<'PY'
+          import os,base64,pathlib,subprocess,json,shutil
+          os.umask(0o077)
+          root=pathlib.Path(os.environ['RUNNER_TEMP'])/'android-signing'
+          root.mkdir()
+          try:
+              for role in ['RELEASE','LEGACY']:
+                  key='DSH_ANDROID_'+role+'_KEYSTORE_BASE64'
+                  value=os.environ.pop(key)
+                  assert value and os.environ.get('DSH_ANDROID_'+role+'_PASSWORD'), 'Missing signing secrets'
+                  path=root/(role.lower()+'.p12')
+                  path.write_bytes(base64.b64decode(value,validate=True))
+                  os.environ['DSH_ANDROID_'+role+'_KEYSTORE']=str(path)
+              version=json.loads(pathlib.Path('config/compatibility.json').read_text())['android']['versionName']
+              output='dist/android/dsh-mobile-app-'+version+'.apk'
+              subprocess.run(['python3','scripts/releases/sign-android.py','app/build/outputs/apk/release/app-release-unsigned.apk',output],check=True)
+          finally:
+              shutil.rmtree(root,ignore_errors=True)
+          PY
+      - name: Clean signing material after any failure
+        if: always()
+        run: rm -rf "$RUNNER_TEMP/android-signing"
+      - name: Upload signed APK and public identity (no keys)
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: signed-android-${{ github.sha }}
+          path: dist/android/
+          if-no-files-found: error
+          retention-days: 7

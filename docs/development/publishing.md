@@ -14,6 +14,8 @@ node scripts/releases/check-compatibility.mjs
 
 ## Android
 
+正式分发使用 [Android 发布签名流程](android-signing.md)。下面的 Debug 命令仅用于开发验证；签名工作流手动触发，默认不创建 Release。
+
 ```sh
 ./gradlew :app:assembleDebug
 ```

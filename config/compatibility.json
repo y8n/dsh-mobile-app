@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "android": {
-    "versionName": "0.2.0",
-    "versionCode": 40
+    "versionName": "0.2.1-rc.1",
+    "versionCode": 41
   },
   "desktop": {
     "packageName": "@dsh-mobile-app/desktop-extension",
