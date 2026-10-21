@@ -59,6 +59,8 @@ DSH Mobile App 是 DeepSeek Harness 的**非官方原生 Android 客户端**，�
   <img src="docs/screenshots/connection-dark.png" width="240" alt="添加设备连接">
   <img src="docs/screenshots/plugins-dark.png" width="240" alt="电脑插件管理">
   <img src="docs/screenshots/schedules-dark.png" width="240" alt="定时任务列表">
+  <img src="docs/screenshots/settings-light.png" width="240" alt="全局主题与缓存设置组件">
+  <img src="docs/screenshots/device-diagnostics-dark.png" width="240" alt="单个设备的诊断日志上传">
   <img src="docs/screenshots/theme-dark.png" width="240" alt="主题选择">
 </p>
 
