@@ -1,0 +1,8 @@
+{
+  "packageName": "@dsh-mobile-app/desktop-extension",
+  "version": "0.2.0",
+  "sha256": "3e8523f88d2b20044ba3c0978a50bcfdbb73d42593eea7e35328d2163e12781b",
+  "integrity": "sha512-R9kNrJWIuGcIDO9WhcAg78hwtDnF5P2nnvmC1VFbDN2jsyeGyW1movoWm/ZBv6gupqM+SrlrnvEJaue8yqhSag==",
+  "tarball": "https://registry.npmjs.org/@dsh-mobile-app/desktop-extension/-/desktop-extension-0.2.0.tgz",
+  "sourceCommit": "8c2ff6e77bf4ee62e9f776826459455ea856b84e"
+}
