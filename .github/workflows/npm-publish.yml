@@ -74,8 +74,11 @@ jobs:
         run: node scripts/releases/npm-release.mjs publish
       - name: Read registry back and install exact version plus release tag
         run: node scripts/releases/npm-release.mjs verify
+      - name: Record verified public package identity in job log
+        run: cat .local/npm-release/registry-verification.json
       - name: Upload release evidence and assembled package
         if: always()
+        continue-on-error: true # Registry verification remains mandatory; storage quota must not suggest republishing.
         uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: npm-${{ inputs.version }}-${{ github.run_id }}

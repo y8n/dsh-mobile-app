@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { releaseTag } from '../releases/version-policy.mjs';
 import { readFile, mkdtemp, stat, rm } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import { resolve, join } from 'node:path';
@@ -21,7 +22,7 @@ try {
   assert.equal(manifest.name, fixture.packageName ?? '@dsh-mobile-app/desktop-extension');
   if(fixture.publicBeta){
     assert.equal(manifest.private,false);
-    assert.equal(manifest.publishConfig.tag,'beta');
+    assert.equal(manifest.publishConfig.tag,releaseTag(manifest.version));
     assert.equal(manifest.publishConfig.access,'public');
     const distribution=JSON.parse(await readFile(join(runtime,'gateway/project-distribution.json')));
     assert.equal(distribution.androidDownloadAvailable,false);
