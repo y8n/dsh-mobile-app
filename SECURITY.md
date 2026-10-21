@@ -1,13 +1,12 @@
 # 安全问题
 
 项目未承诺企业级支持或所有环境的安全认证。
-公开首版前不接受把已知私有历史或个人测试服务配置直接公开作为“问题报告”。
+请勿将个人调试记录或私有服务配置直接公开作为“问题报告”。
 
 ## 报告方式
 
-若项目公开后启用了 GitHub Private Vulnerability Reporting，请通过仓库 Security → Report a vulnerability 私密报告。
-此入口在正式开放前须由维护者核对启用；当前不假称它已可用。
-没有私密报告入口时，先提交不含漏洞细节的联系请求，不要在公开 Issue 中贴利用过程或凭据。
+已启用 GitHub Private Vulnerability Reporting，请通过 [私密报告入口](https://github.com/y8n/dsh-mobile-app/security/advisories/new) 提交安全问题，也可从仓库 Security → Report a vulnerability 进入。
+如果该入口暂不可用，先提交不含漏洞细节的联系请求，不要在公开 Issue 中贴利用过程或凭据。
 
 说明受影响组件/版本、预期和实际行为、最小复现环境及影响。不使用真实用户会话、文件或配对数据。
 不要上传访问 Token、Cookie、配对密钥、证书私钥、完整数据库或包含他人数据的抓包。
