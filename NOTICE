@@ -1,0 +1,33 @@
+dsh-mobile-app
+Copyright 2026 Y8n and dsh-mobile-app contributors.
+
+Project-owned original code and modifications are licensed under Apache-2.0.
+Third-party code, artwork, dependencies and notices retain their own terms.
+No original author's copyright or attribution is replaced by this notice.
+
+Integrated gateway: dsh-mobile 0.6.3, saya-ch and contributors, Apache-2.0.
+Source: https://github.com/saya-ch/dsh-mobile/tree/v0.6.3
+Upstream commit: 696dae1ee4ad8010ee9e9551af954fde49463078
+The unmodified release archive is retained under
+  desktop/mobile-extension/vendor/dsh-mobile/
+The plugin distribution retains that archive under its content-addressed runtime.
+Local changes include integration, project distribution and support links,
+project release metadata and updater replacement, and browser module/style identity.
+Modified and generated derivative files carry their own change notices.
+Original Apache-2.0 text, THIRD_PARTY_NOTICES, Funnel third-party licenses and
+question-fixes license remain in the archive.
+
+DeepSeek Harness: Copyright (c) 2026 DeepSeek, MIT.
+Reference source: https://github.com/deepseek-ai/deepseek-harness
+Source tag: dsh-v0.2.0-rc.2
+Source commit: 639ed015397290b3745d163aafe02ffee4aa3f84
+Adapted/reference UI behavior, exported file/plugin artwork and icon assets
+are attributed in legal/ASSET-SOURCES.json. Full MIT text is retained in
+  docs/licenses/deepseek-harness-MIT.txt
+The original project root MIT license does not resolve third-party trademark
+rights or independently establish permission for every embedded brand mark.
+
+Dependency inventories and full license texts: legal/dependencies/.
+Detailed scope and exceptions: THIRD_PARTY_NOTICES.md and legal/README.md.
+Apache-2.0 does not grant trademark or endorsement rights. In particular,
+DeepSeek/DSH names and whale artwork are not claimed as this project's trademarks.

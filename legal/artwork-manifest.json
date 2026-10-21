@@ -1,0 +1,308 @@
+{
+  "sourceCommit": "639ed015397290b3745d163aafe02ffee4aa3f84",
+  "source": "FileTypeIcon.tsx, CodeFileIcon.tsx, code-file-icon-artwork.ts and original theme CSS",
+  "rendering": "Original React SVG, transparent PNG at 4x (112px), native Android Image at requested dp size",
+  "icons": [
+    {
+      "type": "angular",
+      "file": "dsh_file_angular.png",
+      "sha256": "2cd6d138dcbc9a358a4b3f5a05d29d2c59e7e1ed88381aa0b4ac444b2e97c487"
+    },
+    {
+      "type": "c",
+      "file": "dsh_file_c.png",
+      "sha256": "0c76a90c1b6af0d0e09478862d46c7ce5ca71c9b682914feb551631fea2e7e8c"
+    },
+    {
+      "type": "clojure",
+      "file": "dsh_file_clojure.png",
+      "sha256": "1a82afbcbb7dd16780bf2aa57cb1f88cc43c8bf62167dbaa2d724af12ffd6270"
+    },
+    {
+      "type": "cmake",
+      "file": "dsh_file_cmake.png",
+      "sha256": "e5b4ba41401d046d2b9a4cc5596e4bb71d0453bc837d4560afd4bb1fc7ecc4c6"
+    },
+    {
+      "type": "cpp",
+      "file": "dsh_file_cpp.png",
+      "sha256": "ed93d035284807baec4b7083e222a5b1f81f2abf90d2af37d5e59cc2357646e6"
+    },
+    {
+      "type": "csharp",
+      "file": "dsh_file_csharp.png",
+      "sha256": "19d00bac6360f06d8cf420fa26f26e66f2b6d7c7e876e0d80ed3fe44f2cef72d"
+    },
+    {
+      "type": "css",
+      "file": "dsh_file_css.png",
+      "sha256": "fadb9d4af97f4ede3814f56c3f54323064a3a6b8083b0bf0505bbd91dfea52ad"
+    },
+    {
+      "type": "dart",
+      "file": "dsh_file_dart.png",
+      "sha256": "7e7cf678513ca9a8d5bf758b4d53d7b82d1b3fa172f30662de7c96adfe07a1c7"
+    },
+    {
+      "type": "docker",
+      "file": "dsh_file_docker.png",
+      "sha256": "db01bb16d957fe6f7bd07339498debc233ab36f8968613642b6c71de6eb6978b"
+    },
+    {
+      "type": "elixir",
+      "file": "dsh_file_elixir.png",
+      "sha256": "e8db4e64fb2da3cb92639fba2cb847ec2d78d32c93e62473b2fe01a16b575f27"
+    },
+    {
+      "type": "env",
+      "file": "dsh_file_env.png",
+      "sha256": "29676220b092572d82399040bb8790b18033a88f21ce07f8a6aaa34df427e357"
+    },
+    {
+      "type": "erlang",
+      "file": "dsh_file_erlang.png",
+      "sha256": "407e4021daf14dc53f9bedaf772d7f848ca1d5319c6f73ad14688d7f5d8eab23"
+    },
+    {
+      "type": "flutter",
+      "file": "dsh_file_flutter.png",
+      "sha256": "b47bc965b01dd35fa9722abdc1391bd036d05c4b47f4645bae11b1700dfd221e"
+    },
+    {
+      "type": "git",
+      "file": "dsh_file_git.png",
+      "sha256": "911e18e5bbde2027d127ffb3c02e9e162ee5fbbf3d5cd2a961518ba6bea64e27"
+    },
+    {
+      "type": "go",
+      "file": "dsh_file_go.png",
+      "sha256": "1771b31954107a73f9fbb5ffa7842e09356eef220afa2e31f76cc2beb639dd3e"
+    },
+    {
+      "type": "graphql",
+      "file": "dsh_file_graphql.png",
+      "sha256": "35c887cc733bd2bcbe5b5989d291e268cd9b892805006d0f7e87427bff1b9da9"
+    },
+    {
+      "type": "haskell",
+      "file": "dsh_file_haskell.png",
+      "sha256": "a6cf166a01abb9269b2479d4ae1cef84f631d0c04c967eba1bd6b3e26b409704"
+    },
+    {
+      "type": "ini",
+      "file": "dsh_file_ini.png",
+      "sha256": "7762394486199711ef614dc1c3ad82eda17dd7d01642ad059ac1304a5f568fbd"
+    },
+    {
+      "type": "java",
+      "file": "dsh_file_java.png",
+      "sha256": "c1ff1dfa40245280354498240f2101ae3679ba261f04a1472dc202088aa15c8f"
+    },
+    {
+      "type": "javascript",
+      "file": "dsh_file_javascript.png",
+      "sha256": "80cb34cc466752a74ea6902bd40e4c1a777ec3de054106a818b6ca6e3d1a855c"
+    },
+    {
+      "type": "json",
+      "file": "dsh_file_json.png",
+      "sha256": "424b2f3e5e23a9926784ecc6672ffbf5a5fc8ee47d9ebe54d3ca38f3fb15fd44"
+    },
+    {
+      "type": "kotlin",
+      "file": "dsh_file_kotlin.png",
+      "sha256": "8ccd21b395db65ca4943b95584dfbdb71806a4c8349d0ed53c040567394c5923"
+    },
+    {
+      "type": "lua",
+      "file": "dsh_file_lua.png",
+      "sha256": "ac039c5ea567aabbee0ca02c61e4cc2fb7885221f5d3e7435de74e59ffe5b7ee"
+    },
+    {
+      "type": "makefile",
+      "file": "dsh_file_makefile.png",
+      "sha256": "38f5973e58001326d8269fa3ddc3ae2afbaea53496955261238c9d8609d55c7f"
+    },
+    {
+      "type": "node",
+      "file": "dsh_file_node.png",
+      "sha256": "c329f928c4915bfca08e64ede85a80b0a68a62c1f547e32ab34e495070b5fffa"
+    },
+    {
+      "type": "objective-c",
+      "file": "dsh_file_objective_c.png",
+      "sha256": "5afddb21300cb148fb0c1ad09298d8fb01b54d3f124a08c51faaf41b7a88815d"
+    },
+    {
+      "type": "perl",
+      "file": "dsh_file_perl.png",
+      "sha256": "5b35c90ec782f3fcecaddcb8d7bebfd1ef5161ca07fa15694ad1a53e3bd7ca06"
+    },
+    {
+      "type": "php",
+      "file": "dsh_file_php.png",
+      "sha256": "c374e502a4b6e18ddcc005295696c3488350efa0798a580a2ae8b2ff9dfc6387"
+    },
+    {
+      "type": "powershell",
+      "file": "dsh_file_powershell.png",
+      "sha256": "e32fe86ed8a4cdc86628340b12bde6f1d37ecec6a391dea86108372f2d3dcac8"
+    },
+    {
+      "type": "protobuf",
+      "file": "dsh_file_protobuf.png",
+      "sha256": "1821dd328e7d4873839ea5f99c1aff2c91477185652f3a5f0d00dbc77c975897"
+    },
+    {
+      "type": "python",
+      "file": "dsh_file_python.png",
+      "sha256": "6b17720a16c95969b65dea23a8438a107ee868917a9d791848e52b0d1693078c"
+    },
+    {
+      "type": "r",
+      "file": "dsh_file_r.png",
+      "sha256": "c543d935fedf0c117698ffabeea476eee9d53fe7880a991ae9b94e0d2d317a38"
+    },
+    {
+      "type": "react",
+      "file": "dsh_file_react.png",
+      "sha256": "708f7142977be7e8f5505505a1eadd6fe62e619d6e042ea973270266f3d58c49"
+    },
+    {
+      "type": "ruby",
+      "file": "dsh_file_ruby.png",
+      "sha256": "528230e651bb8376da02f5a42d6c5dbe8dac322861ae99a05ee1e834c91fc7f0"
+    },
+    {
+      "type": "rust",
+      "file": "dsh_file_rust.png",
+      "sha256": "1c1242c3b9caac2e624035c80c6cfc93f3ad4ec1e1a5ae5c28cae06ef0611e78"
+    },
+    {
+      "type": "scala",
+      "file": "dsh_file_scala.png",
+      "sha256": "5c9181aeb5b59ab614fd1e82eedb642af47dcf7018237dd5a3e63987119289d2"
+    },
+    {
+      "type": "shell",
+      "file": "dsh_file_shell.png",
+      "sha256": "2d5c4c461583c4338358e02869e5015f58903117a5e4375f14383d6351756495"
+    },
+    {
+      "type": "solidity",
+      "file": "dsh_file_solidity.png",
+      "sha256": "7c8f39545ac5184ac2c0b3a816a6b0821f544e2b112330160a9f3443d5dc6629"
+    },
+    {
+      "type": "sql",
+      "file": "dsh_file_sql.png",
+      "sha256": "45ab4d3b3637d2880888d559e9cfbfe3df8ae549e3941ab1b08ea2acab3f1135"
+    },
+    {
+      "type": "svelte",
+      "file": "dsh_file_svelte.png",
+      "sha256": "05f8473e617771241d8faecd9127275e1140c9103a0dc0d9fadef201d6db4f26"
+    },
+    {
+      "type": "swift",
+      "file": "dsh_file_swift.png",
+      "sha256": "cf3ba14ba8f0501dcfb6f624818d255d14203376ded900cb7c026c57bb0bad72"
+    },
+    {
+      "type": "toml",
+      "file": "dsh_file_toml.png",
+      "sha256": "502ac5aa095aed461bfd3364c8012c5c5aa40dd528c1d889d727a4ac54439bf2"
+    },
+    {
+      "type": "typescript",
+      "file": "dsh_file_typescript.png",
+      "sha256": "6011dd230a322eb735fabdf91d24b47496d6cc662b6416f84169ef4faa6b2c9a"
+    },
+    {
+      "type": "vue",
+      "file": "dsh_file_vue.png",
+      "sha256": "ed62043b0b2127d3e419edeef69016464d2f4c9eba356f33e168f51746ffcfae"
+    },
+    {
+      "type": "wasm",
+      "file": "dsh_file_wasm.png",
+      "sha256": "3136300c139a85915ccab5c772b5b0ce41e2f8a0c83d0ca8e4e6ab53ddd5e071"
+    },
+    {
+      "type": "xml",
+      "file": "dsh_file_xml.png",
+      "sha256": "1e2ceadcf7a211845258c4c2ea624846360f8bacfc94b5ab43dcbd488675969b"
+    },
+    {
+      "type": "yaml",
+      "file": "dsh_file_yaml.png",
+      "sha256": "f45fca1013776f2351ee249c49a8a571c2fc7548d1015565dcaf10ecce2ff386"
+    },
+    {
+      "type": "zig",
+      "file": "dsh_file_zig.png",
+      "sha256": "b327a30b9eff9325d903c115bec7dff517d7fea831480fae708503a2935fc3ac"
+    },
+    {
+      "type": "code",
+      "file": "dsh_file_code.png",
+      "sha256": "21393bfd2af777deca5732c1b760b0ac98ea8553f7cd6d2edcb59cbf7cd5138c"
+    },
+    {
+      "type": "excel",
+      "file": "dsh_file_excel.png",
+      "sha256": "feb5e1eb04f73a719899670221e99089eb5dff9f5a348f68ea249a57bf96fda5"
+    },
+    {
+      "type": "folder",
+      "file": "dsh_file_folder.png",
+      "sha256": "b1ac03179abfefe291de4cfba63bc8ca1b0c9363d4d1e3f40299898709864a97"
+    },
+    {
+      "type": "html",
+      "file": "dsh_file_html.png",
+      "sha256": "135d82d731b4c170ebc1d4eb28d66fc2a1659290d696998b2817ff684f260fb4"
+    },
+    {
+      "type": "image",
+      "file": "dsh_file_image.png",
+      "sha256": "a5986404bc9b2d100d4a0a640f554548d0c0dcec73d8147929348ce3b71cf65e"
+    },
+    {
+      "type": "markdown",
+      "file": "dsh_file_markdown.png",
+      "sha256": "7e199968ff5fb7983488e5e560665554d9fcb60e2ca9fd62cbd3868469daf67b"
+    },
+    {
+      "type": "other",
+      "file": "dsh_file_other.png",
+      "sha256": "f282da44a2ef0600a78d71eb9eb6569b917f15614377654afeb9a26bfa5379b2"
+    },
+    {
+      "type": "pdf",
+      "file": "dsh_file_pdf.png",
+      "sha256": "a4ecf3a5048461425b7a4074ffbd3be509a1cf70eaac31b197fda7df9319ebb7"
+    },
+    {
+      "type": "ppt",
+      "file": "dsh_file_ppt.png",
+      "sha256": "65d892581d4a71ea16856b382f21422e7d2e160c653666d008f744deb11f3bc6"
+    },
+    {
+      "type": "video",
+      "file": "dsh_file_video.png",
+      "sha256": "c5395ca5841f3c5e6493c63626025e59a71c77a3d41e1e9b2a095c950a60f9d1"
+    },
+    {
+      "type": "word",
+      "file": "dsh_file_word.png",
+      "sha256": "8e4fe0027b648aae5038858fbc841dfb21c7f63c5dd305df409a378090c42203"
+    }
+  ],
+  "classificationCases": 836,
+  "flutterResults": [
+    "dart",
+    "flutter",
+    "dart"
+  ]
+}

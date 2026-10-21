@@ -1,0 +1,83 @@
+{
+  "kind": "Native Android production components with synthetic fixture data",
+  "api": 35,
+  "size": "1080x2400",
+  "captureTest": "app/src/androidTest/java/dev/dsh/mobile/PublicShowcaseTest.kt",
+  "versionName": "0.2.0-beta.1",
+  "versionCode": 35,
+  "realDesktopConnected": false,
+  "images": [
+    {
+      "path": "docs/screenshots/workspaces-light.png",
+      "sha256": "8cf88976795595448c3f9a5d4a91a0753f5d8ff8fe7eeb601d961702a71b168d",
+      "capture": "01b-workspaces-light.png"
+    },
+    {
+      "path": "docs/screenshots/sessions-dark.png",
+      "sha256": "35a925a771f72c0afd7aa5c67b2de902619ad93f5b12daaeaf226709a4a9cd6e",
+      "capture": "09-sessions-dark.png"
+    },
+    {
+      "path": "docs/screenshots/conversation-light.png",
+      "sha256": "f4d3f5b9084e289634d3a675a0542594dedca96e848459206f67104fb40e47fa",
+      "capture": "11b-conversation-light.png"
+    },
+    {
+      "path": "docs/screenshots/connection-dark.png",
+      "sha256": "ccb7e0dd3c8ff8a02ba4077cc2a0fd2bde23a4cb69ce373992f18ce6d3618662",
+      "capture": "06-connection-dark.png"
+    },
+    {
+      "path": "docs/screenshots/plugins-dark.png",
+      "sha256": "d82ee5ff1247b60774d393c7a529de60bab3a682b307d367842c5d69a0695bc2",
+      "capture": "13-plugins-dark.png"
+    },
+    {
+      "path": "docs/screenshots/diff-dark.png",
+      "sha256": "ab8a9c5a9a02546712cb14b090ed3519fee3e40d153737c440b70d5f4a5d9899",
+      "capture": "18-diff-dark.png"
+    },
+    {
+      "path": "docs/screenshots/device-settings-dark.png",
+      "sha256": "39486990a2274225a2fb9c03f05f94bc4ff82da3abcbf06b097f546ad5d3032d",
+      "capture": "03-device-settings-dark.png"
+    },
+    {
+      "path": "docs/screenshots/settings-light.png",
+      "sha256": "07b84d99173e129acff1533cf81864e93fbba7e137734886fc81ac6c1e9d15bd",
+      "capture": "24-settings-light.png"
+    },
+    {
+      "path": "docs/screenshots/theme-dark.png",
+      "sha256": "f2f57cfab035d14d6642c31fbf00a61b33d6112c72ddd4e6dd2483abfe4d85ac",
+      "capture": "20-theme-dialog-dark.png"
+    },
+    {
+      "path": "docs/screenshots/markdown-light.png",
+      "sha256": "48af3fc896b38098c4d3d9e82f9eeb15b78e10f010a28c3f7b1cc1de45a3565d",
+      "capture": "23-markdown-controls-light.png"
+    },
+    {
+      "path": "docs/screenshots/goal-dark.png",
+      "sha256": "b22ff6b94261767d205590c0d8890dc07f96bb5248557b1f00346d9f9e3a0e3a",
+      "capture": "28-goal-dark.png"
+    },
+    {
+      "path": "docs/screenshots/permission-dark.png",
+      "sha256": "5069c2267aa397c501a41dfb173d5a6743c0720fb28a3a70f996e6ad79415aed",
+      "capture": "27-approval-dark.png"
+    },
+    {
+      "path": "docs/screenshots/device-usage-dark.png",
+      "sha256": "7d1427bbc7a6afa05e6365728fe7ebe185d9a7401b381452b48980973a7fd3af",
+      "capture": "38-device-usage-dark.png"
+    },
+    {
+      "path": "docs/screenshots/schedules-dark.png",
+      "sha256": "1396af1ba742da8892d582657a44d959f66412cdf0c8f6e608afce8a1d6cd768",
+      "capture": "15-schedules-dark.png"
+    }
+  ],
+  "captureTestSourceCommit": "4dca6a4c78f80b9088ff30a395e1329c635594f8",
+  "applicationSourceCommit": "0b605033704a1d5a722d01da2ccd8bb358928aac"
+}

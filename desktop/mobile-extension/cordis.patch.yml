@@ -1,0 +1,54 @@
+# Community bundle for the stock DSH Web profile. Installation contributes a
+# Host gateway and a browser Client face; it does not patch DSH source files.
+- id: directory-picker
+  name: '@deepseek-ai/dsh-host-directory-picker-auto'
+  disabled: true
+
+- insert:
+    - id: directory-picker-mobile-host
+      name: '@deepseek-ai/dsh-host-directory-picker-browse'
+      # Windows DSH Desktop supplies its own browse pair after user patches.
+      disabled: !!js ctx.get('desktopRuntime')?.platform === 'win32'
+
+    - id: directory-picker-mobile-surface
+      name: '@deepseek-ai/dsh-client-ui-directory-picker-browse'
+      disabled: !!js ctx.get('desktopRuntime')?.platform === 'win32'
+
+    - id: mobile-access
+      name: '@dsh-mobile-app/desktop-extension/gateway/index.mjs'
+      inject: [webServer, connection]
+      config:
+        setupFile: !!js dshHomePath('mobile-access/setup.json')
+        stateFile: !!js dshHomePath('mobile-access/devices.json')
+        controlFile: !!js dshHomePath('mobile-access/control.json')
+        customCssFile: !!js dshHomePath('mobile-access/mobile.css')
+        customScriptFile: !!js dshHomePath('mobile-access/mobile.js')
+        initiallyEnabled: false
+        listenHost: 127.0.0.1
+        listenPort: 3443
+        allowedCidrs: [127.0.0.0/8]
+        tls:
+          mode: disabled
+
+    # Keep long question titles and answer options in one card scrollport.
+    # The component switch restores the upstream layout immediately.
+    # DSH anchors this file entry beside the bundle patch, independent of pnpm's linker.
+    - id: dsh-ui-fixes
+      name: '@dsh-mobile-app/desktop-extension/vendor/dsh-mobile/packages/question-fixes/lib/index.mjs'
+
+
+- insert:
+    - id: mobile-search
+      name: '@dsh-mobile-app/desktop-extension/search.mjs'
+      config:
+        expectedQueryHash: dbecf83320e10d93d735b3d01384ab817a0b90102ccecb0a22c013c71dfe70a0
+    - id: mobile-schedule
+      name: '@dsh-mobile-app/desktop-extension'
+      config:
+        expectedScheduleHash: 9d728e13edb7e7f954d493ece3aaf4c90c3bcb6f888b41efb3ae21b09384ae38
+    - id: mobile-attachments
+      name: '@dsh-mobile-app/desktop-extension/attachments.mjs'
+    - id: mobile-account-summary
+      name: '@dsh-mobile-app/desktop-extension/account-summary.mjs'
+    - id: mobile-diagnostics
+      name: '@dsh-mobile-app/desktop-extension/diagnostics.mjs'

@@ -1,0 +1,24 @@
+name: 问题反馈
+description: 使用虚构内容描述可复现问题，不提交个人数据。
+body:
+  - type: markdown
+    attributes:
+      value: '安全漏洞请先阅读 SECURITY.md。不要上传配对信息、密钥、Cookie、个人日志或工作区数据库。'
+  - type: textarea
+    id: environment
+    attributes:
+      label: 版本与环境
+      description: App、电脑插件、DeepSeek Harness、手机系统和连接类型。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduce
+    attributes:
+      label: 复现步骤、预期结果与实际结果
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: 脱敏说明或截图
+      description: 仅包含虚构复现数据；不要上传整个日志目录。

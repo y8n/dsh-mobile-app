@@ -1,0 +1,95 @@
+{
+  "name": "@dsh-mobile-app/desktop-extension",
+  "version": "0.2.0-beta.3",
+  "private": true,
+  "type": "module",
+  "main": "./index.mjs",
+  "files": [
+    "index.mjs",
+    "notification-feed.mjs",
+    "notification-copy.mjs",
+    "schedule-engine.mjs",
+    "session-admission.mjs",
+    "attachments.mjs",
+    "attachment-engine.mjs",
+    "search.mjs",
+    "search-policy.mjs",
+    "prompt-lookup.mjs",
+    "workspace-search.mjs",
+    "workspace-list.mjs",
+    "account-summary.mjs",
+    "cordis.patch.yml",
+    "vendor",
+    "upstream-lock.json",
+    "THIRD_PARTY_NOTICES.md",
+    "gateway",
+    "diagnostics.mjs",
+    "diagnostic-schema.mjs",
+    "diagnostic-event-schema.mjs"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "description": "DeepSeek Harness 原生移动端完整插件：安全网关、配对、远程连接与增强服务",
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1",
+    "bonjour-service": "1.4.4",
+    "qrcode": "^1.5.4",
+    "selfsigned": "^5.5.0",
+    "ws": "8.22.0"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.1",
+    "@deepseek-ai/dsh-client-connection": "*",
+    "@deepseek-ai/dsh-commands": "*",
+    "@deepseek-ai/dsh-host-webserver": "*",
+    "@deepseek-ai/dsh-llm": "*",
+    "react": "^18.2.0"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-client-connection": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-commands": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-host-webserver": {
+      "optional": true
+    },
+    "@deepseek-ai/dsh-llm": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    }
+  },
+  "engines": {
+    "node": "^22.19.0 || >=24.0.0"
+  },
+  "license": "Apache-2.0",
+  "exports": {
+    ".": "./index.mjs",
+    "./package.json": "./package.json",
+    "./*.mjs": "./*.mjs",
+    "./vendor/*": "./vendor/*"
+  },
+  "bin": {
+    "dsh-mobile": "./vendor/dsh-mobile/lib/cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/y8n/dsh-mobile-app.git"
+  },
+  "homepage": "https://github.com/y8n/dsh-mobile-app",
+  "bugs": {
+    "url": "https://github.com/y8n/dsh-mobile-app/issues"
+  }
+}

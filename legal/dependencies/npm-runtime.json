@@ -1,0 +1,1175 @@
+{
+  "scope": "Exact installed dependency closure of the integrated plugin; excludes host-provided peers",
+  "rootDependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1",
+    "bonjour-service": "1.4.4",
+    "qrcode": "^1.5.4",
+    "selfsigned": "^5.5.0",
+    "ws": "8.22.0"
+  },
+  "packages": [
+    {
+      "name": "@deepseek-ai/cosmokit",
+      "version": "1.8.5",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+        "directory": "vendor/cosmokit"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/034fb52b1d57360ecbae6cb1632a88f86fd7c3d3f5631a5f082710203dda0be7.txt",
+          "sha256": "034fb52b1d57360ecbae6cb1632a88f86fd7c3d3f5631a5f082710203dda0be7"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "@deepseek-ai/schemastery",
+      "version": "3.18.4",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/deepseek-ai/deepseek-harness.git",
+        "directory": "vendor/schemastery"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/034fb52b1d57360ecbae6cb1632a88f86fd7c3d3f5631a5f082710203dda0be7.txt",
+          "sha256": "034fb52b1d57360ecbae6cb1632a88f86fd7c3d3f5631a5f082710203dda0be7"
+        }
+      ],
+      "dependencies": {
+        "@standard-schema/spec": "^1.1.0",
+        "@deepseek-ai/cosmokit": "~1.8.5"
+      }
+    },
+    {
+      "name": "@leichtgewicht/ip-codec",
+      "version": "2.0.5",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/martinheidegger/ip-codec.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/09fd9784b65e00b09b6366845098a2cb6d6f559e84d292528f1e462c9e4acb62.txt",
+          "sha256": "09fd9784b65e00b09b6366845098a2cb6d6f559e84d292528f1e462c9e4acb62"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "@noble/hashes",
+      "version": "1.8.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/paulmillr/noble-hashes.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec.txt",
+          "sha256": "4f221aee6e072336700c408c68ab3b96a3fc09f6aebe6f48f1bd99e5ef13faec"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "@peculiar/asn1-cms",
+      "version": "2.10.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/asn1-schema",
+        "directory": "packages/cms"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/1ecdd8e8977af83c07c5f97bec87b47d27059b7ea323ca3160fbfa2314f5d99c.txt",
+          "sha256": "1ecdd8e8977af83c07c5f97bec87b47d27059b7ea323ca3160fbfa2314f5d99c"
+        }
+      ],
+      "dependencies": {
+        "@peculiar/asn1-schema": "^2.10.0",
+        "@peculiar/asn1-x509": "^2.10.0",
+        "@peculiar/asn1-x509-attr": "^2.10.0",
+        "asn1js": "^3.0.10",
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "@peculiar/asn1-csr",
+      "version": "2.10.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/asn1-schema",
+        "directory": "packages/csr"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/031b1aac1313d91559ecc89cb6ce7c822f39f1a1259fae0f9b8d01a90c35c85a.txt",
+          "sha256": "031b1aac1313d91559ecc89cb6ce7c822f39f1a1259fae0f9b8d01a90c35c85a"
+        }
+      ],
+      "dependencies": {
+        "@peculiar/asn1-schema": "^2.10.0",
+        "@peculiar/asn1-x509": "^2.10.0",
+        "asn1js": "^3.0.10",
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "@peculiar/asn1-ecc",
+      "version": "2.10.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/asn1-schema",
+        "directory": "packages/ecc"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/031b1aac1313d91559ecc89cb6ce7c822f39f1a1259fae0f9b8d01a90c35c85a.txt",
+          "sha256": "031b1aac1313d91559ecc89cb6ce7c822f39f1a1259fae0f9b8d01a90c35c85a"
+        }
+      ],
+      "dependencies": {
+        "@peculiar/asn1-schema": "^2.10.0",
+        "@peculiar/asn1-x509": "^2.10.0",
+        "asn1js": "^3.0.10",
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "@peculiar/asn1-pfx",
+      "version": "2.10.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/asn1-schema",
+        "directory": "packages/pfx"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/031b1aac1313d91559ecc89cb6ce7c822f39f1a1259fae0f9b8d01a90c35c85a.txt",
+          "sha256": "031b1aac1313d91559ecc89cb6ce7c822f39f1a1259fae0f9b8d01a90c35c85a"
+        }
+      ],
+      "dependencies": {
+        "@peculiar/asn1-cms": "^2.10.0",
+        "@peculiar/asn1-pkcs8": "^2.10.0",
+        "@peculiar/asn1-rsa": "^2.10.0",
+        "@peculiar/asn1-schema": "^2.10.0",
+        "asn1js": "^3.0.10",
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "@peculiar/asn1-pkcs8",
+      "version": "2.10.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/asn1-schema",
+        "directory": "packages/pkcs8"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/031b1aac1313d91559ecc89cb6ce7c822f39f1a1259fae0f9b8d01a90c35c85a.txt",
+          "sha256": "031b1aac1313d91559ecc89cb6ce7c822f39f1a1259fae0f9b8d01a90c35c85a"
+        }
+      ],
+      "dependencies": {
+        "@peculiar/asn1-schema": "^2.10.0",
+        "@peculiar/asn1-x509": "^2.10.0",
+        "asn1js": "^3.0.10",
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "@peculiar/asn1-pkcs9",
+      "version": "2.10.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/asn1-schema",
+        "directory": "packages/pkcs9"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/3ee7c4b649b783688f1186c9aa0da50e331027514c9bfa143f27983e23783c71.txt",
+          "sha256": "3ee7c4b649b783688f1186c9aa0da50e331027514c9bfa143f27983e23783c71"
+        }
+      ],
+      "dependencies": {
+        "@peculiar/asn1-cms": "^2.10.0",
+        "@peculiar/asn1-pfx": "^2.10.0",
+        "@peculiar/asn1-pkcs8": "^2.10.0",
+        "@peculiar/asn1-schema": "^2.10.0",
+        "@peculiar/asn1-x509": "^2.10.0",
+        "@peculiar/asn1-x509-attr": "^2.10.0",
+        "asn1js": "^3.0.10",
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "@peculiar/asn1-rsa",
+      "version": "2.10.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/asn1-schema",
+        "directory": "packages/rsa"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/031b1aac1313d91559ecc89cb6ce7c822f39f1a1259fae0f9b8d01a90c35c85a.txt",
+          "sha256": "031b1aac1313d91559ecc89cb6ce7c822f39f1a1259fae0f9b8d01a90c35c85a"
+        }
+      ],
+      "dependencies": {
+        "@peculiar/asn1-schema": "^2.10.0",
+        "@peculiar/asn1-x509": "^2.10.0",
+        "asn1js": "^3.0.10",
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "@peculiar/asn1-schema",
+      "version": "2.10.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/asn1-schema",
+        "directory": "packages/schema"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/1ecdd8e8977af83c07c5f97bec87b47d27059b7ea323ca3160fbfa2314f5d99c.txt",
+          "sha256": "1ecdd8e8977af83c07c5f97bec87b47d27059b7ea323ca3160fbfa2314f5d99c"
+        }
+      ],
+      "dependencies": {
+        "@peculiar/utils": "^2.0.2",
+        "asn1js": "^3.0.10",
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "@peculiar/asn1-x509-attr",
+      "version": "2.10.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/asn1-schema",
+        "directory": "packages/x509-attr"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/031b1aac1313d91559ecc89cb6ce7c822f39f1a1259fae0f9b8d01a90c35c85a.txt",
+          "sha256": "031b1aac1313d91559ecc89cb6ce7c822f39f1a1259fae0f9b8d01a90c35c85a"
+        }
+      ],
+      "dependencies": {
+        "@peculiar/asn1-schema": "^2.10.0",
+        "@peculiar/asn1-x509": "^2.10.0",
+        "asn1js": "^3.0.10",
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "@peculiar/asn1-x509",
+      "version": "2.10.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/asn1-schema",
+        "directory": "packages/x509"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/1ecdd8e8977af83c07c5f97bec87b47d27059b7ea323ca3160fbfa2314f5d99c.txt",
+          "sha256": "1ecdd8e8977af83c07c5f97bec87b47d27059b7ea323ca3160fbfa2314f5d99c"
+        }
+      ],
+      "dependencies": {
+        "@peculiar/asn1-schema": "^2.10.0",
+        "@peculiar/utils": "^2.0.2",
+        "asn1js": "^3.0.10",
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "@peculiar/utils",
+      "version": "2.0.3",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/pvtsutils"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/ce2ae0f0066d1be56ab4ec851cc611805bb95cdc8dd858b301e22ee54b351d43.txt",
+          "sha256": "ce2ae0f0066d1be56ab4ec851cc611805bb95cdc8dd858b301e22ee54b351d43"
+        }
+      ],
+      "dependencies": {
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "@peculiar/x509",
+      "version": "1.14.3",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PeculiarVentures/x509.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/3d5d1b1150b1fc25144d342daaba3875899b8dc2fcb172ea4810cc69affbe4d3.txt",
+          "sha256": "3d5d1b1150b1fc25144d342daaba3875899b8dc2fcb172ea4810cc69affbe4d3"
+        }
+      ],
+      "dependencies": {
+        "@peculiar/asn1-cms": "^2.6.0",
+        "@peculiar/asn1-csr": "^2.6.0",
+        "@peculiar/asn1-ecc": "^2.6.0",
+        "@peculiar/asn1-pkcs9": "^2.6.0",
+        "@peculiar/asn1-rsa": "^2.6.0",
+        "@peculiar/asn1-schema": "^2.6.0",
+        "@peculiar/asn1-x509": "^2.6.0",
+        "pvtsutils": "^1.3.6",
+        "reflect-metadata": "^0.2.2",
+        "tslib": "^2.8.1",
+        "tsyringe": "^4.10.0"
+      }
+    },
+    {
+      "name": "@standard-schema/spec",
+      "version": "1.1.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/standard-schema/standard-schema"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/653b779005a3a4d64a7288c940f7b9a0e8f0b1e0375f6aa6af9473caf131e564.txt",
+          "sha256": "653b779005a3a4d64a7288c940f7b9a0e8f0b1e0375f6aa6af9473caf131e564"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "ansi-regex",
+      "version": "5.0.1",
+      "license": "MIT",
+      "repository": "chalk/ansi-regex",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "ansi-styles",
+      "version": "4.3.0",
+      "license": "MIT",
+      "repository": "chalk/ansi-styles",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {
+        "color-convert": "^2.0.1"
+      }
+    },
+    {
+      "name": "asn1js",
+      "version": "3.0.10",
+      "license": "BSD-3-Clause",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/ASN1.js"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/ebe5d98519d0dfcbcb80e20b22a56e7321e8557cd14355760434bbd4c1f4f683.txt",
+          "sha256": "ebe5d98519d0dfcbcb80e20b22a56e7321e8557cd14355760434bbd4c1f4f683"
+        }
+      ],
+      "dependencies": {
+        "pvtsutils": "^1.3.6",
+        "pvutils": "^1.1.5",
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "bonjour-service",
+      "version": "1.4.4",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/onlxltd/bonjour-service.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/82a4526b2777826043d2ca0e282f7428c2bd1762b13ef70b4fb4a57a48303d73.txt",
+          "sha256": "82a4526b2777826043d2ca0e282f7428c2bd1762b13ef70b4fb4a57a48303d73"
+        }
+      ],
+      "dependencies": {
+        "fast-deep-equal": "^3.1.3",
+        "multicast-dns": "^7.2.5"
+      }
+    },
+    {
+      "name": "bytestreamjs",
+      "version": "2.0.1",
+      "license": "BSD-3-Clause",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/PeculiarVentures/ByteStream.js.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/f0fd6a4bf9bf46cfcea2005f800305fbb72cd0152b3c269cf496388258ee08f9.txt",
+          "sha256": "f0fd6a4bf9bf46cfcea2005f800305fbb72cd0152b3c269cf496388258ee08f9"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "camelcase",
+      "version": "5.3.1",
+      "license": "MIT",
+      "repository": "sindresorhus/camelcase",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "cliui",
+      "version": "6.0.0",
+      "license": "ISC",
+      "repository": {
+        "type": "git",
+        "url": "http://github.com/yargs/cliui.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE.txt",
+          "text": "legal/dependencies/npm-texts/2dc0465729366c3a7890dfa9e972a1ba7048a26c02116fb8b419a6a1ac110149.txt",
+          "sha256": "2dc0465729366c3a7890dfa9e972a1ba7048a26c02116fb8b419a6a1ac110149"
+        }
+      ],
+      "dependencies": {
+        "string-width": "^4.2.0",
+        "strip-ansi": "^6.0.0",
+        "wrap-ansi": "^6.2.0"
+      }
+    },
+    {
+      "name": "color-convert",
+      "version": "2.0.1",
+      "license": "MIT",
+      "repository": "Qix-/color-convert",
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/693866fc419c6f61c8570438ec00659d156ec2b4d4a4d04091711f5f11a365d4.txt",
+          "sha256": "693866fc419c6f61c8570438ec00659d156ec2b4d4a4d04091711f5f11a365d4"
+        }
+      ],
+      "dependencies": {
+        "color-name": "~1.1.4"
+      }
+    },
+    {
+      "name": "color-name",
+      "version": "1.1.4",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git@github.com:colorjs/color-name.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/c064f7a3e353bc1bc977f3c897941c75ef763f44f41677e0a15370ca0853d6e2.txt",
+          "sha256": "c064f7a3e353bc1bc977f3c897941c75ef763f44f41677e0a15370ca0853d6e2"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "decamelize",
+      "version": "1.2.0",
+      "license": "MIT",
+      "repository": "sindresorhus/decamelize",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/6fb9754611c20f6649f68805e8c990e83261f29316e29de9e6cedae607b8634c.txt",
+          "sha256": "6fb9754611c20f6649f68805e8c990e83261f29316e29de9e6cedae607b8634c"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "dijkstrajs",
+      "version": "1.0.3",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/tcort/dijkstrajs"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE.md",
+          "text": "legal/dependencies/npm-texts/c46324e45a005413535a6fb7a97e9eacd3cc6bf30335b7d5c10b8ee3af9e60c2.txt",
+          "sha256": "c46324e45a005413535a6fb7a97e9eacd3cc6bf30335b7d5c10b8ee3af9e60c2"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "dns-packet",
+      "version": "5.6.1",
+      "license": "MIT",
+      "repository": "mafintosh/dns-packet",
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/6a134e51aa31496c15a741592fc5d782b2dbf8d8b6b8524e15c8520ae0cd6374.txt",
+          "sha256": "6a134e51aa31496c15a741592fc5d782b2dbf8d8b6b8524e15c8520ae0cd6374"
+        }
+      ],
+      "dependencies": {
+        "@leichtgewicht/ip-codec": "^2.0.1"
+      }
+    },
+    {
+      "name": "emoji-regex",
+      "version": "8.0.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/mathiasbynens/emoji-regex.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE-MIT.txt",
+          "text": "legal/dependencies/npm-texts/483acb265f182907d1caf6cff9c16c96f31325ed23792832cc5d8b12d5f88c8a.txt",
+          "sha256": "483acb265f182907d1caf6cff9c16c96f31325ed23792832cc5d8b12d5f88c8a"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "fast-deep-equal",
+      "version": "3.1.3",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/epoberezkin/fast-deep-equal.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/7bf9b2de73a6b356761c948d0e9eeb4be6c1270bd04c79cd489c1e400ffdfc1a.txt",
+          "sha256": "7bf9b2de73a6b356761c948d0e9eeb4be6c1270bd04c79cd489c1e400ffdfc1a"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "find-up",
+      "version": "4.1.0",
+      "license": "MIT",
+      "repository": "sindresorhus/find-up",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {
+        "locate-path": "^5.0.0",
+        "path-exists": "^4.0.0"
+      }
+    },
+    {
+      "name": "get-caller-file",
+      "version": "2.0.5",
+      "license": "ISC",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/stefanpenner/get-caller-file.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE.md",
+          "text": "legal/dependencies/npm-texts/902dbb4154679fb2b8d7c33878183f45b268d01eae5e5033dddaa8852d45f213.txt",
+          "sha256": "902dbb4154679fb2b8d7c33878183f45b268d01eae5e5033dddaa8852d45f213"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "is-fullwidth-code-point",
+      "version": "3.0.0",
+      "license": "MIT",
+      "repository": "sindresorhus/is-fullwidth-code-point",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "locate-path",
+      "version": "5.0.0",
+      "license": "MIT",
+      "repository": "sindresorhus/locate-path",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {
+        "p-locate": "^4.1.0"
+      }
+    },
+    {
+      "name": "multicast-dns",
+      "version": "7.2.5",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/mafintosh/multicast-dns.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/0aa9add6a9158efad3e6649e3affd607c7e2629f6677af19f9988c8fbb0757b0.txt",
+          "sha256": "0aa9add6a9158efad3e6649e3affd607c7e2629f6677af19f9988c8fbb0757b0"
+        }
+      ],
+      "dependencies": {
+        "dns-packet": "^5.2.2",
+        "thunky": "^1.0.2"
+      }
+    },
+    {
+      "name": "p-limit",
+      "version": "2.3.0",
+      "license": "MIT",
+      "repository": "sindresorhus/p-limit",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {
+        "p-try": "^2.0.0"
+      }
+    },
+    {
+      "name": "p-locate",
+      "version": "4.1.0",
+      "license": "MIT",
+      "repository": "sindresorhus/p-locate",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {
+        "p-limit": "^2.2.0"
+      }
+    },
+    {
+      "name": "p-try",
+      "version": "2.2.0",
+      "license": "MIT",
+      "repository": "sindresorhus/p-try",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "path-exists",
+      "version": "4.0.0",
+      "license": "MIT",
+      "repository": "sindresorhus/path-exists",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "pkijs",
+      "version": "3.4.1",
+      "license": "BSD-3-Clause",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/PKI.js"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/d27a2aa238102924ea75da808f79253484347d824b9b7b077837e4232f9493f5.txt",
+          "sha256": "d27a2aa238102924ea75da808f79253484347d824b9b7b077837e4232f9493f5"
+        }
+      ],
+      "dependencies": {
+        "@noble/hashes": "1.8.0",
+        "asn1js": "^3.0.6",
+        "bytestreamjs": "^2.0.1",
+        "pvtsutils": "^1.3.6",
+        "pvutils": "^1.1.3",
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "pngjs",
+      "version": "5.0.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/lukeapage/pngjs.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/176b07a18c0bb3836aaeb61088fd0bf11a38f66e6f15e3fbda85faa225250d6e.txt",
+          "sha256": "176b07a18c0bb3836aaeb61088fd0bf11a38f66e6f15e3fbda85faa225250d6e"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "pvtsutils",
+      "version": "1.3.6",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/PeculiarVentures/pvtsutils"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/c620c1d08a47c93ce242914a4269b86e41df5a97845325725a5f83d5d6f9d7fd.txt",
+          "sha256": "c620c1d08a47c93ce242914a4269b86e41df5a97845325725a5f83d5d6f9d7fd"
+        }
+      ],
+      "dependencies": {
+        "tslib": "^2.8.1"
+      }
+    },
+    {
+      "name": "pvutils",
+      "version": "1.2.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/PeculiarVentures/pvutils"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/15c88630f1e778db64a446cb31b67362cc9eb7a048fdf5ac7ab51905b74464cd.txt",
+          "sha256": "15c88630f1e778db64a446cb31b67362cc9eb7a048fdf5ac7ab51905b74464cd"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "qrcode",
+      "version": "1.5.4",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/soldair/node-qrcode.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/8df47c6ad9ac2c41eb9b2a72def9908959da0ede8dadd56c7b249c1bdb0c5ce6.txt",
+          "sha256": "8df47c6ad9ac2c41eb9b2a72def9908959da0ede8dadd56c7b249c1bdb0c5ce6"
+        }
+      ],
+      "dependencies": {
+        "dijkstrajs": "^1.0.1",
+        "pngjs": "^5.0.0",
+        "yargs": "^15.3.1"
+      }
+    },
+    {
+      "name": "reflect-metadata",
+      "version": "0.2.2",
+      "license": "Apache-2.0",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/rbuckton/reflect-metadata.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/c5217b0544ea9c91d010863582d6f6b35ec50e4146c34dee085ddcec5dd92def.txt",
+          "sha256": "c5217b0544ea9c91d010863582d6f6b35ec50e4146c34dee085ddcec5dd92def"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "require-directory",
+      "version": "2.1.1",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/troygoode/node-require-directory.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/a92e52eb1fa7cd746e3827bf01d3a3589bbc8e1e51348b1da042aad165525ad1.txt",
+          "sha256": "a92e52eb1fa7cd746e3827bf01d3a3589bbc8e1e51348b1da042aad165525ad1"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "require-main-filename",
+      "version": "2.0.0",
+      "license": "ISC",
+      "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/yargs/require-main-filename.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE.txt",
+          "text": "legal/dependencies/npm-texts/365496ca1f56da40b23c9815fc40fa9005847b2f8f8fd1c1a4929ef25ec8cd1d.txt",
+          "sha256": "365496ca1f56da40b23c9815fc40fa9005847b2f8f8fd1c1a4929ef25ec8cd1d"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "selfsigned",
+      "version": "5.5.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/jfromaniello/selfsigned.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/cce91643d3456176ba7870772e107f28f54d51948086339522e3c31fb49f2f34.txt",
+          "sha256": "cce91643d3456176ba7870772e107f28f54d51948086339522e3c31fb49f2f34"
+        }
+      ],
+      "dependencies": {
+        "@peculiar/x509": "^1.14.2",
+        "pkijs": "^3.3.3"
+      }
+    },
+    {
+      "name": "set-blocking",
+      "version": "2.0.0",
+      "license": "ISC",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/yargs/set-blocking.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE.txt",
+          "text": "legal/dependencies/npm-texts/365496ca1f56da40b23c9815fc40fa9005847b2f8f8fd1c1a4929ef25ec8cd1d.txt",
+          "sha256": "365496ca1f56da40b23c9815fc40fa9005847b2f8f8fd1c1a4929ef25ec8cd1d"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "string-width",
+      "version": "4.2.3",
+      "license": "MIT",
+      "repository": "sindresorhus/string-width",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {
+        "emoji-regex": "^8.0.0",
+        "is-fullwidth-code-point": "^3.0.0",
+        "strip-ansi": "^6.0.1"
+      }
+    },
+    {
+      "name": "strip-ansi",
+      "version": "6.0.1",
+      "license": "MIT",
+      "repository": "chalk/strip-ansi",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {
+        "ansi-regex": "^5.0.1"
+      }
+    },
+    {
+      "name": "thunky",
+      "version": "1.1.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git://github.com/mafintosh/thunky.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/2281f2db407bdbb54f069eec38128b2dee2c0c952f52b786ef1faecb81767b3c.txt",
+          "sha256": "2281f2db407bdbb54f069eec38128b2dee2c0c952f52b786ef1faecb81767b3c"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "tslib",
+      "version": "1.14.1",
+      "license": "0BSD",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/Microsoft/tslib.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE.txt",
+          "text": "legal/dependencies/npm-texts/210b19e543130388c68654b7497e967119ce17145f66ab7d85688fbd70f08751.txt",
+          "sha256": "210b19e543130388c68654b7497e967119ce17145f66ab7d85688fbd70f08751"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "tslib",
+      "version": "2.8.1",
+      "license": "0BSD",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/Microsoft/tslib.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE.txt",
+          "text": "legal/dependencies/npm-texts/210b19e543130388c68654b7497e967119ce17145f66ab7d85688fbd70f08751.txt",
+          "sha256": "210b19e543130388c68654b7497e967119ce17145f66ab7d85688fbd70f08751"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "tsyringe",
+      "version": "4.10.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Microsoft/tsyringe.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/27ebda9d51f0a56b7e281ccd8230a27236dcb51c05f64b07869ecf6e965d68b0.txt",
+          "sha256": "27ebda9d51f0a56b7e281ccd8230a27236dcb51c05f64b07869ecf6e965d68b0"
+        }
+      ],
+      "dependencies": {
+        "tslib": "^1.9.3"
+      }
+    },
+    {
+      "name": "which-module",
+      "version": "2.0.1",
+      "license": "ISC",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/nexdrew/which-module.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/852bf81203aa93aa89afc9f881ebb035322dc7334aaceff435c557634c94a815.txt",
+          "sha256": "852bf81203aa93aa89afc9f881ebb035322dc7334aaceff435c557634c94a815"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "wrap-ansi",
+      "version": "6.2.0",
+      "license": "MIT",
+      "repository": "chalk/wrap-ansi",
+      "licenseFiles": [
+        {
+          "originalName": "license",
+          "text": "legal/dependencies/npm-texts/48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0.txt",
+          "sha256": "48da2f39e100d4085767e94966b43f4fa95ff6a0698fba57ed460914e35f94a0"
+        }
+      ],
+      "dependencies": {
+        "ansi-styles": "^4.0.0",
+        "string-width": "^4.1.0",
+        "strip-ansi": "^6.0.0"
+      }
+    },
+    {
+      "name": "ws",
+      "version": "8.22.0",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "git+https://github.com/websockets/ws.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/2b29dcfe0d6471f7e8c92c5fb38c9f93edee10330937055440192f1832b1ecef.txt",
+          "sha256": "2b29dcfe0d6471f7e8c92c5fb38c9f93edee10330937055440192f1832b1ecef"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "y18n",
+      "version": "4.0.3",
+      "license": "ISC",
+      "repository": {
+        "type": "git",
+        "url": "git@github.com:yargs/y18n.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/2034cce3b6fafcddd642c4175e01d3ddfc332a53b9f20fdc46b1466dc89ac469.txt",
+          "sha256": "2034cce3b6fafcddd642c4175e01d3ddfc332a53b9f20fdc46b1466dc89ac469"
+        }
+      ],
+      "dependencies": {}
+    },
+    {
+      "name": "yargs-parser",
+      "version": "18.1.3",
+      "license": "ISC",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/yargs/yargs-parser.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE.txt",
+          "text": "legal/dependencies/npm-texts/365496ca1f56da40b23c9815fc40fa9005847b2f8f8fd1c1a4929ef25ec8cd1d.txt",
+          "sha256": "365496ca1f56da40b23c9815fc40fa9005847b2f8f8fd1c1a4929ef25ec8cd1d"
+        }
+      ],
+      "dependencies": {
+        "camelcase": "^5.0.0",
+        "decamelize": "^1.2.0"
+      }
+    },
+    {
+      "name": "yargs",
+      "version": "15.4.1",
+      "license": "MIT",
+      "repository": {
+        "type": "git",
+        "url": "https://github.com/yargs/yargs.git"
+      },
+      "licenseFiles": [
+        {
+          "originalName": "LICENSE",
+          "text": "legal/dependencies/npm-texts/2f1a503bfab84b3ba7393627308b3274501e459e3b5185bbb56bbf16cb1602d4.txt",
+          "sha256": "2f1a503bfab84b3ba7393627308b3274501e459e3b5185bbb56bbf16cb1602d4"
+        }
+      ],
+      "dependencies": {
+        "cliui": "^6.0.0",
+        "decamelize": "^1.2.0",
+        "find-up": "^4.1.0",
+        "get-caller-file": "^2.0.1",
+        "require-directory": "^2.1.1",
+        "require-main-filename": "^2.0.0",
+        "set-blocking": "^2.0.0",
+        "string-width": "^4.2.0",
+        "which-module": "^2.0.0",
+        "y18n": "^4.0.0",
+        "yargs-parser": "^18.1.2"
+      }
+    }
+  ]
+}

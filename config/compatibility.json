@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "android": {
+    "versionName": "0.2.0-beta.5",
+    "versionCode": 39
+  },
+  "desktop": {
+    "packageName": "@dsh-mobile-app/desktop-extension",
+    "version": "0.2.0-beta.3",
+    "sourcePackagePrivate": true,
+    "publicBetaStatus": "source-unreleased",
+    "directSourcePublicationAllowed": false,
+    "publicPackageName": "@dsh-mobile-app/desktop-extension",
+    "publicTag": "beta",
+    "sourceHasUnreleasedChanges": true,
+    "nextPackageRequiresVersionBump": true,
+    "publishedVersion": "0.2.0-beta.1"
+  },
+  "baselineHost": "DeepSeek Harness Desktop 0.2.0-rc.2",
+  "supportScope": "Recorded baseline only; untested combinations have no support claim.",
+  "requiredRpcReferences": [
+    "mobileSchedule/capabilities",
+    "mobileSearch/searchWorkspace",
+    "mobileSearch/listWorkspace",
+    "mobileSearch/lookupPrompt",
+    "mobileAttachments/stat",
+    "mobileAttachments/readRange",
+    "mobileNotifications/poll",
+    "mobileNotifications/details",
+    "mobileAccount/summary",
+    "mobileDiagnostics/upload"
+  ],
+  "evidence": [
+    "config/releases/npm/0.2.0-beta.1.json"
+  ],
+  "projectRelease": {
+    "series": "0.2.0",
+    "firstPrerelease": "0.2.0-beta.1",
+    "status": "preparing-private"
+  }
+}

@@ -1,0 +1,21 @@
+.DS_Store
+.reference/
+.local/
+.cloudflare/
+.env
+.env.*
+local.properties
+*.jks
+*.keystore
+.gradle/
+**/build/
+
+# Immutable compatibility graphs for a live linked-bundle migration
+desktop/mobile-extension/runtime/
+
+# Cloudflare diagnostics tooling
+infra/diagnostics/node_modules/
+infra/diagnostics/.cf/
+infra/diagnostics/.wrangler/
+
+.kotlin/

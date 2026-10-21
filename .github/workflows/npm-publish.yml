@@ -1,0 +1,86 @@
+name: npm release
+run-name: npm ${{ inputs.mode }} ${{ inputs.version }} from ${{ inputs.source_ref }}
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'validate checks OIDC and existing package; publish creates a new version'
+        type: choice
+        options: [validate, publish]
+        default: validate
+        required: true
+      source_ref:
+        description: 'Pushed source branch containing release scripts and version'
+        default: main
+        required: true
+        type: string
+      expected_sha:
+        description: 'Full 40-character source commit SHA; mismatch aborts'
+        required: true
+        type: string
+      version:
+        description: 'Exact committed SemVer version, e.g. 0.2.0-beta.1'
+        required: true
+        type: string
+permissions:
+  contents: read
+concurrency:
+  group: npm-desktop-extension-release
+  cancel-in-progress: false
+jobs:
+  release:
+    if: github.repository == 'y8n/dsh-mobile-app' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      RELEASE_VERSION: ${{ inputs.version }}
+      EXPECTED_SHA: ${{ inputs.expected_sha }}
+      RELEASE_MODE: ${{ inputs.mode }}
+      NPM_CONFIG_PROVENANCE: 'false'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: ${{ inputs.source_ref }}
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Pin npm with Trusted Publishing support
+        run: npm install --global npm@11.19.0 --registry=https://registry.npmjs.org/
+      - name: Check committed source and registry state
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/releases/npm-release.mjs preflight
+      - name: Check two-end version records and plugin tests
+        run: |
+          node scripts/releases/check-compatibility.mjs
+          node --test desktop/mobile-extension/tests/*.test.mjs scripts/releases/tests/*.test.mjs
+      - name: Verify real npm OIDC token exchange without publishing
+        run: node scripts/releases/npm-release.mjs oidc-check
+      - name: Assemble new package from committed source
+        if: inputs.mode == 'publish'
+        run: node scripts/m5/pack-extension.mjs --public --publish-name=@dsh-mobile-app/desktop-extension
+      - name: Verify assembled package
+        if: inputs.mode == 'publish'
+        run: |
+          node scripts/m5/verify-extension-package.mjs
+          node scripts/releases/verify-public-package.mjs
+      - name: Publish via OIDC
+        if: inputs.mode == 'publish'
+        run: node scripts/releases/npm-release.mjs publish
+      - name: Read registry back and install exact version plus release tag
+        run: node scripts/releases/npm-release.mjs verify
+      - name: Upload release evidence and assembled package
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: npm-${{ inputs.version }}-${{ github.run_id }}
+          path: |
+            .local/npm-release/*.json
+            .local/extension-packages/*.tgz
+          if-no-files-found: warn
+          retention-days: 30
