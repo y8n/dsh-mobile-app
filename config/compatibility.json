@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "android": {
-    "versionName": "0.2.0-beta.5",
-    "versionCode": 39
+    "versionName": "0.2.0",
+    "versionCode": 40
   },
   "desktop": {
     "packageName": "@dsh-mobile-app/desktop-extension",
-    "version": "0.2.0-beta.3",
+    "version": "0.2.0",
     "sourcePackagePrivate": true,
     "publicBetaStatus": "source-unreleased",
     "directSourcePublicationAllowed": false,
     "publicPackageName": "@dsh-mobile-app/desktop-extension",
-    "publicTag": "beta",
+    "publicTag": "latest",
     "sourceHasUnreleasedChanges": true,
     "nextPackageRequiresVersionBump": true,
     "publishedVersion": "0.2.0-beta.1"
@@ -36,6 +36,6 @@
   "projectRelease": {
     "series": "0.2.0",
     "firstPrerelease": "0.2.0-beta.1",
-    "status": "preparing-private"
+    "status": "release-preparation"
   }
 }

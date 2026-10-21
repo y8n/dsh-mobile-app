@@ -1,4 +1,4 @@
-# DeepSeek Harness mobile desktop extension (beta)
+# DeepSeek Harness mobile desktop extension
 
 > Based on **[saya-ch/dsh-mobile](https://github.com/saya-ch/dsh-mobile)** by **saya-ch and contributors**. Thank you for the gateway, pairing and mobile-access foundation. DeepSeek Harness provides the host and UI/artwork references. Original licenses and notices are retained. This is an unofficial project.
 
@@ -8,14 +8,14 @@ Do not run a second dsh-mobile gateway alongside this bundle.
 
 ## Install
 
-In DeepSeek Harness plugin management, add `PUBLISH_PACKAGE_NAME@beta` using the npm official registry.
-For reproducible installation, replace beta with the exact published version. Refresh the plugin UI after upgrade.
+In DeepSeek Harness plugin management, add `PUBLISH_PACKAGE_NAME` using the npm official registry.
+For reproducible installation, append `@<version>` using the exact version specified in the release. Refresh the plugin UI after upgrade.
 Enable mobile access and configure your own LAN or remote connection in the plugin panel, then pair your phone.
 No account keys, certificates, device pairing or personal tunnel settings are included in this package.
 
 The recorded host baseline is DeepSeek Harness Desktop 0.2.0-rc.2, Node ^22.19.0 or >=24.
 Schedule/query modules are hash checked; other host versions are not automatically supported.
-The existing Android baseline is 0.1.1-alpha.20, but this npm beta does not distribute the personal test APK.
+Download the Android app separately from [GitHub Releases](https://github.com/y8n/dsh-mobile-app/releases) and follow the release compatibility notes.
 Phone background notifications still depend on Android/OEM background permission; this is not a system push guarantee.
 
 ## Connection setup guides
@@ -40,8 +40,8 @@ For repeated reconnects, see the upstream [slow-connection guide](https://github
 
 ## Scope and limits
 
-This beta validates npm distribution. It does not imply full regression on all host platforms or Huawei phones.
-The GitHub repository remains private, so source/help/issue URLs require repository access.
+Release verification covers only the environments listed in the release notes, not all host platforms or Huawei phones.
+Access to source/help/issue URLs and screenshots follows the GitHub repository’s visibility.
 Updating this plugin does not install or update the Android app. Keep the previous plugin version for rollback;
 do not delete pairing files, certificates, workspaces or conversations during upgrade.
 

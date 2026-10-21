@@ -10,8 +10,8 @@ android {
         applicationId = "dev.dsh.mobile"
         minSdk = 26
         targetSdk = 36
-        versionCode = 39
-        versionName = "0.2.0-beta.5"
+        versionCode = 40
+        versionName = "0.2.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
