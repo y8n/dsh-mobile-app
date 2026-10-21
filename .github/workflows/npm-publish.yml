@@ -86,4 +86,4 @@ jobs:
             .local/npm-release/*.json
             .local/extension-packages/*.tgz
           if-no-files-found: warn
-          retention-days: 30
+          retention-days: 7
