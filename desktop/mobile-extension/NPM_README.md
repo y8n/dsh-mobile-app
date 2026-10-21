@@ -25,6 +25,68 @@ The GitHub repository remains private, so source/help/issue URLs require reposit
 Updating this plugin does not install or update the Android app. Keep the previous plugin version for rollback;
 do not delete pairing files, certificates, workspaces or conversations during upgrade.
 
+## Enhancements over the original project
+
+The original **saya-ch/dsh-mobile** provides the gateway, pairing, remote access and web-based functionality. The following describes this project’s native implementation and enhancements, not capabilities invented by this project. Screenshots use synthetic data. [Download the Android app](https://github.com/y8n/dsh-mobile-app/releases); installing this npm package does not install the app.
+
+### 1. Native interface and interaction
+
+Kotlin / Jetpack Compose replaces the original WebView container with native workspace, conversation and device settings pages. Compact execution rows and collapsed completed steps keep answers readable. The combined screenshot shows these three key pages.
+
+<p align="center"><img src="https://raw.githubusercontent.com/y8n/dsh-mobile-app/main/docs/screenshots/native-pages-light.png" width="900" alt="Native interface and interaction"></p>
+
+### 2. Native files and viewers
+
+Open files on the paired computer, inspect diffs and preview images in native viewers. Markdown file links are resolved by the app without rewriting the original document. Code blocks support copying and line wrapping. The combined screenshot shows file changes, a diff, and the file-type/image component fixture.
+
+<p align="center"><img src="https://raw.githubusercontent.com/y8n/dsh-mobile-app/main/docs/screenshots/file-viewers-light.png" width="900" alt="Native files and viewers"></p>
+
+### 3. Multiple connection channels
+
+Save LAN and tunnel connections for one computer: use LAN at home and a tunnel away from home, switching manually without adding the computer again. Gateway capabilities are inherited from the original project.
+
+<p align="center"><img src="https://raw.githubusercontent.com/y8n/dsh-mobile-app/main/docs/screenshots/device-settings-light.png" width="300" alt="Multiple connection channels"></p>
+
+### 4. Per-device usage time
+
+View today and the last seven days of foreground use for each computer. Background time is excluded; usage records remain on the phone and can be cleared.
+
+<p align="center"><img src="https://raw.githubusercontent.com/y8n/dsh-mobile-app/main/docs/screenshots/device-usage-light.png" width="300" alt="Per-device usage time"></p>
+
+### 5. Account balances
+
+View topped-up balance, bonus balance and cumulative spending. API values may differ from the official platform, which remains authoritative. Cumulative spending requires desktop account credentials; missing data is shown as unknown.
+
+<p align="center"><img src="https://raw.githubusercontent.com/y8n/dsh-mobile-app/main/docs/screenshots/device-settings-light.png" width="300" alt="Account balances"></p>
+
+### 6. Session notifications
+
+Distinct icons and messages for completed answers, questions and permission requests. Tap to open the matching conversation; the currently visible conversation does not notify again. The screenshot uses synthetic events on an emulator and does not prove background delivery on physical phones. Android/OEM background permissions still apply.
+
+<p align="center"><img src="https://raw.githubusercontent.com/y8n/dsh-mobile-app/main/docs/screenshots/notifications-light.png" width="300" alt="Session notifications"></p>
+
+### 7. Git branch and uncertain-send recovery
+
+Git workspaces show the current branch under the conversation title. When delivery is uncertain, the app retains the pending message and supports checking the real conversation or releasing the pending state. This screenshot shows the branch in a normal conversation, not an uncertain-send state.
+
+<p align="center"><img src="https://raw.githubusercontent.com/y8n/dsh-mobile-app/main/docs/screenshots/conversation-branch-light.png" width="300" alt="Git branch and uncertain-send recovery"></p>
+
+### 8. Diagnostic upload for troubleshooting
+
+Logs stay on the phone by default. Upload from the selected computer’s device settings using the paired connection; reports are saved to that computer’s temporary directory, without cloud storage. Report IDs and local paths help developers and AI investigate. Automatic upload requires a separate opt-in.
+
+<p align="center"><img src="https://raw.githubusercontent.com/y8n/dsh-mobile-app/main/docs/screenshots/device-diagnostics-light.png" width="300" alt="Diagnostic upload for troubleshooting"></p>
+
+### Light and dark themes
+
+The Android app follows the system theme by default, with fixed light and dark options.
+The same conversation is shown below for comparison.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/y8n/dsh-mobile-app/main/docs/screenshots/conversation-light.png" width="240" alt="Same conversation in light theme">
+  <img src="https://raw.githubusercontent.com/y8n/dsh-mobile-app/main/docs/screenshots/conversation-dark.png" width="240" alt="Same conversation in dark theme">
+</p>
+
 ## License
 
 Original project code and modifications: Apache-2.0. See LICENSE and NOTICE.

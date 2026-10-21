@@ -31,10 +31,11 @@ class PublicShowcaseTest {
     @get:Rule val compose = createAndroidComposeRule<MainActivity>()
     private val instrumentation get() = InstrumentationRegistry.getInstrumentation()
     private val context get() = compose.activity.applicationContext
+    private val lightOnly get() = InstrumentationRegistry.getArguments().getString("showcaseTheme") == "light"
     private fun capture(name: String) {
         compose.waitForIdle(); Thread.sleep(350); compose.waitForIdle()
         val bitmap = instrumentation.uiAutomation.takeScreenshot() ?: error("screenshot unavailable")
-        File(context.filesDir, "public-showcase").apply { mkdirs() }.resolve("$name.png").outputStream().use {
+        File(context.filesDir, "public-showcase").apply { mkdirs() }.resolve("${if (lightOnly) name.replace("-dark", "-light") else name}.png").outputStream().use {
             assertTrue(bitmap.compress(android.graphics.Bitmap.CompressFormat.PNG, 100, it))
         }
         bitmap.recycle()
@@ -51,7 +52,7 @@ class PublicShowcaseTest {
         }
         override fun follow(endpoint: String, args: JsonObject): Flow<JsonObject> = flow {
             emit(when(endpoint) {
-                "session/follow" -> json("""{"type":"snapshot","header":{"id":"s"},"cursor":5,"hasMore":false,"records":[{"event":{"seq":0,"type":"user/message","data":{"content":[{"type":"text","text":"整理发布检查清单\n请保留清晰的步骤"}]}}},{"event":{"seq":1,"type":"turn/start","data":{"turn":1}}},{"event":{"seq":2,"type":"tool/call","data":{"name":"edit","callId":"c","arguments":"{\"file_path\":\"/fixture/Theme.kt\"}","turn":1}}},{"event":{"seq":3,"type":"tool/result","data":{"message":{"source":{"kind":"tool","callId":"c"},"content":[]},"meta":{"diffs":[{"path":"/fixture/Theme.kt","oldText":"val theme = light","newText":"val theme = dark"}]},"turn":1}}},{"event":{"seq":4,"type":"assistant/message","data":{"turn":1,"message":{"content":[{"type":"text","text":"## 发布清单\n\n已整理 **发布检查项**，可点击 [文件链接](Theme.kt) 查看修改。\n\n|项目|状态|\n|---|---|\n|主题|完成|\n|文件预览|完成|\n\n```kotlin\nval theme = dark\n```"}]}}}},{"event":{"seq":5,"type":"turn/end","data":{"turn":1,"reason":{"kind":"completed"}}}}],"projections":{"asOfSeq":4,"values":{"title":"发布准备","agentStatus":"idle","modelSelection":{"next":{"provider":"deepseek","model":"deepseek-flash"}},"tokenUsage":{"uncachedInputTokens":1200,"outputTokens":800},"contextPressure":{"projectedTokens":2000,"contextWindow":100000}}}}""")
+                "session/follow" -> json("""{"type":"snapshot","header":{"id":"s","cwd":"/fixture/project"},"cursor":5,"hasMore":false,"records":[{"event":{"seq":0,"type":"user/message","data":{"content":[{"type":"text","text":"整理发布检查清单\n请保留清晰的步骤"}]}}},{"event":{"seq":1,"type":"turn/start","data":{"turn":1}}},{"event":{"seq":2,"type":"tool/call","data":{"name":"edit","callId":"c","arguments":"{\"file_path\":\"/fixture/Theme.kt\"}","turn":1}}},{"event":{"seq":3,"type":"tool/result","data":{"message":{"source":{"kind":"tool","callId":"c"},"content":[]},"meta":{"diffs":[{"path":"/fixture/Theme.kt","oldText":"val theme = light","newText":"val theme = dark"}]},"turn":1}}},{"event":{"seq":4,"type":"assistant/message","data":{"turn":1,"message":{"content":[{"type":"text","text":"## 发布清单\n\n已整理 **发布检查项**，可点击 [文件链接](Theme.kt) 查看修改。\n\n|项目|状态|\n|---|---|\n|主题|完成|\n|文件预览|完成|\n\n```kotlin\nval theme = dark\n```"}]}}}},{"event":{"seq":5,"type":"turn/end","data":{"turn":1,"reason":{"kind":"completed"}}}}],"projections":{"asOfSeq":4,"values":{"title":"发布准备","agentStatus":"idle","modelSelection":{"next":{"provider":"deepseek","model":"deepseek-flash"}},"tokenUsage":{"uncachedInputTokens":1200,"outputTokens":800},"contextPressure":{"projectedTokens":2000,"contextWindow":100000}}}}""")
                 "\$events" -> json("""{"type":"ready","clientId":"theme-fixture"}""")
                 else -> json("""{"type":"baseline","value":{"projections":{}}}""")
             }); awaitCancellation()
@@ -62,7 +63,7 @@ class PublicShowcaseTest {
                 "session/list" -> buildJsonObject { put("items", WireJson.encodeToJsonElement(listOf(SessionSummary("s", "发布准备")))) }
                 "directoryPicker/list" -> WireJson.encodeToJsonElement(DirectoryListing("/fixture", "/", emptyList(), listOf(DirectoryEntry("project", "/fixture/project"))))
                 "workspaceFiles/stat" -> json("""{"absolutePath":"/fixture/Theme.kt","version":"v1","bytes":16}""")
-                "workspaceFiles/read" -> json("""{"absolutePath":"/fixture/Theme.kt","version":"v1","bytes":16,"offset":1,"lines":1,"text":"val theme = dark","eof":true}""")
+                "workspaceFiles/read" -> if (args["path"]?.jsonPrimitive?.content?.endsWith("/.git/HEAD") == true) json("""{"text":"ref: refs/heads/main","eof":true}""") else json("""{"absolutePath":"/fixture/Theme.kt","version":"v1","bytes":16,"offset":1,"lines":1,"text":"val theme = dark","eof":true}""")
                 "pluginManager/listPlugins" -> WireJson.parseToJsonElement("""[{"entryId":"official:web-search","moduleName":"web-search","enabled":true,"meta":{"title":"网页搜索","description":"配置搜索提供方"}},{"entryId":"plugin:example","moduleName":"example","patchId":"fixture","enabled":true,"meta":{"title":"示例插件","description":"原生图标保留颜色"}}]""")
                 "pluginManager/listBundles" -> WireJson.parseToJsonElement("""[{"name":"@fixture/example","installed":true,"enabled":true,"meta":{"title":"示例插件","description":"文件与插件图标保留原色"},"rows":[{"entryId":"plugin:example","rowId":"example","moduleName":"example"}]}]""")
                 "pluginManager/registries" -> json("""{"registry":"https://registry.npmjs.org/"}""")
@@ -77,12 +78,35 @@ class PublicShowcaseTest {
         }
         private fun json(value: String) = WireJson.parseToJsonElement(value).jsonObject
     }
+    @Test fun syntheticNotificationsForReadme() {
+        val notifications = dev.dsh.mobile.notifications.SessionNotifications
+        notifications.channels(context)
+        val device = DeviceCredential("showcase-notifications", "演示电脑", "https://fixture.invalid", "0".repeat(64), "visual", "fixture", Long.MAX_VALUE)
+        val events = listOf(
+            SessionNotificationEvent("showcase-complete", "s", false, System.currentTimeMillis(), sessionTitle = "发布准备", preview = "发布清单已整理完成，可以查看结果。"),
+            SessionNotificationEvent("showcase-question", "s", true, System.currentTimeMillis(), sessionTitle = "发布准备", preview = "是否继续整理使用文档？"),
+            SessionNotificationEvent("showcase-permission", "s", true, System.currentTimeMillis(), permission = true, sessionTitle = "发布准备", preview = "允许修改当前工作区的说明文件？")
+        )
+        try {
+            events.forEach { assertTrue(notifications.post(context, device, it)) }
+            instrumentation.uiAutomation.executeShellCommand("cmd statusbar expand-notifications").close()
+            Thread.sleep(1500)
+            capture("40-notifications-light")
+        } finally {
+            instrumentation.uiAutomation.executeShellCommand("cmd statusbar collapse").close()
+            val manager = context.getSystemService(android.app.NotificationManager::class.java)
+            events.forEach { manager.cancel("${device.id}:${it.id}", 2) }
+        }
+    }
     @Test fun syntheticShowcaseForReadme(): Unit = runBlocking {
         val originalVault = DeviceStore(context).read()
         val root = File(context.cacheDir, "theme-${UUID.randomUUID()}").apply { mkdirs() }
         val scope = CoroutineScope(SupervisorJob() + Dispatchers.IO)
         val store = DeviceStore(PreferenceDataStoreFactory.create(scope = scope) { File(root, "devices.preferences_pb") })
-        store.update { StoredDevices(listOf(DeviceCredential("visual", "演示电脑", "https://fixture.invalid", "0".repeat(64), "visual", "fixture", Long.MAX_VALUE)), defaultId = "visual") }
+        store.update { StoredDevices(listOf(DeviceCredential("visual", "演示电脑", "https://fixture.invalid", "0".repeat(64), "visual", "fixture", Long.MAX_VALUE, connections = listOf(
+            DeviceConnection("lan", "家中局域网", "https://lan.example.invalid", "0".repeat(64), "visual", "fixture", Long.MAX_VALUE),
+            DeviceConnection("tunnel", "外出隧道", "https://remote.example.invalid", "0".repeat(64), "visual", "fixture", Long.MAX_VALUE)
+        ), preferredConnectionId = "lan")), defaultId = "visual") }
         val fixture = Fixture(); val repo = DeviceRepository(store) { fixture }
         val demoDirectory = File(root, "local").apply { mkdirs() }
         val demoUsage = (0..6).associate { days -> java.time.LocalDate.now().minusDays(days.toLong()).toString() to ((days + 1L) * 7 * 60_000) }
@@ -96,11 +120,11 @@ class PublicShowcaseTest {
                 CompositionLocalProvider(LocalThemePreference provides preference) {
                     LaunchedEffect(page.value) { if (page.value != "app") repo.resume() }
                     SideEffect {
-                        val style = if (dark.value) androidx.activity.SystemBarStyle.dark(android.graphics.Color.TRANSPARENT)
+                        val style = if (dark.value && !lightOnly) androidx.activity.SystemBarStyle.dark(android.graphics.Color.TRANSPARENT)
                             else androidx.activity.SystemBarStyle.light(android.graphics.Color.TRANSPARENT, android.graphics.Color.TRANSPARENT)
                         compose.activity.enableEdgeToEdge(statusBarStyle = style, navigationBarStyle = style)
                     }
-                    DshTheme(darkTheme = dark.value) {
+                    DshTheme(darkTheme = dark.value && !lightOnly) {
                         Scaffold(contentWindowInsets = WindowInsets.safeDrawing) { padding -> Box(Modifier.fillMaxSize().padding(padding).consumeWindowInsets(padding)) {
                             key(page.value) { when(page.value) {
                                 "app" -> LiveApp(null, repo)
@@ -145,7 +169,7 @@ class PublicShowcaseTest {
             compose.onNodeWithTag("live_select_directory").performClick(); awaitTag("live_use_directory"); capture("08-directory-dark"); back(); back()
             compose.onNodeWithText("示例项目").performClick(); awaitTag("session_row_s"); capture("09-sessions-dark")
             compose.onNodeWithTag("session_menu_s").performClick(); compose.onNodeWithText("复制会话 ID").assertExists(); capture("10-session-menu-dark"); androidx.test.espresso.Espresso.pressBack()
-            compose.onNodeWithTag("session_row_s").performClick(); awaitTag("composer_input"); capture("11-conversation-dark")
+            compose.onNodeWithTag("session_row_s").performClick(); awaitTag("composer_input"); awaitTag("conversation_git_branch"); capture("11-conversation-dark")
             compose.runOnIdle { dark.value = false }; capture("11b-conversation-light")
             compose.runOnIdle { dark.value = true }
             compose.onNodeWithTag("composer_permission").performClick(); capture("12-permission-menu-dark"); androidx.test.espresso.Espresso.pressBack()

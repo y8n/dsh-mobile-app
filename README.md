@@ -16,7 +16,7 @@ DSH Mobile App 是 DeepSeek Harness 的**非官方原生 Android 客户端**，�
 <p align="center">
   <img src="docs/screenshots/workspaces-light.png" width="240" alt="工作区列表">
   <img src="docs/screenshots/conversation-light.png" width="240" alt="原生会话与消息输入">
-  <img src="docs/screenshots/device-settings-dark.png" width="240" alt="深色设备设置与用量信息">
+  <img src="docs/screenshots/device-settings-light.png" width="240" alt="设备设置与用量信息">
 </p>
 
 ## 下载
@@ -33,9 +33,9 @@ DSH Mobile App 是 DeepSeek Harness 的**非官方原生 Android 客户端**，�
 - **插件与任务**：管理电脑插件、选择 npm 安装源，查看和管理 AI 创建的定时任务。
 
 <p align="center">
-  <img src="docs/screenshots/sessions-dark.png" width="240" alt="会话列表">
+  <img src="docs/screenshots/sessions-light.png" width="240" alt="会话列表">
   <img src="docs/screenshots/markdown-light.png" width="240" alt="Markdown 表格和代码块">
-  <img src="docs/screenshots/diff-dark.png" width="240" alt="文件修改与 diff">
+  <img src="docs/screenshots/diff-light.png" width="240" alt="文件修改与 diff">
 </p>
 
 ### 为移动使用打磨
@@ -47,24 +47,33 @@ DSH Mobile App 是 DeepSeek Harness 的**非官方原生 Android 客户端**，�
 - **主题与用量**：跟随系统、浅色、深色三种主题；设备设置展示充值余额、赠送余额与累计消费。
 
 <p align="center">
-  <img src="docs/screenshots/goal-dark.png" width="240" alt="输入框上方的目标状态栏">
-  <img src="docs/screenshots/permission-dark.png" width="240" alt="权限申请确认">
-  <img src="docs/screenshots/device-usage-dark.png" width="240" alt="设备使用时长统计">
+  <img src="docs/screenshots/goal-light.png" width="240" alt="输入框上方的目标状态栏">
+  <img src="docs/screenshots/permission-light.png" width="240" alt="权限申请确认">
+  <img src="docs/screenshots/device-usage-light.png" width="240" alt="设备使用时长统计">
 </p>
 
 <details>
 <summary>更多界面：连接、插件、定时任务与主题</summary>
 
 <p align="center">
-  <img src="docs/screenshots/connection-dark.png" width="240" alt="添加设备连接">
-  <img src="docs/screenshots/plugins-dark.png" width="240" alt="电脑插件管理">
-  <img src="docs/screenshots/schedules-dark.png" width="240" alt="定时任务列表">
+  <img src="docs/screenshots/connection-light.png" width="240" alt="添加设备连接">
+  <img src="docs/screenshots/plugins-light.png" width="240" alt="电脑插件管理">
+  <img src="docs/screenshots/schedules-light.png" width="240" alt="定时任务列表">
   <img src="docs/screenshots/settings-light.png" width="240" alt="全局主题与缓存设置组件">
-  <img src="docs/screenshots/device-diagnostics-dark.png" width="240" alt="单个设备的诊断日志上传">
-  <img src="docs/screenshots/theme-dark.png" width="240" alt="主题选择">
+  <img src="docs/screenshots/device-diagnostics-light.png" width="240" alt="单个设备的诊断日志上传">
+  <img src="docs/screenshots/theme-light.png" width="240" alt="主题选择">
 </p>
 
 </details>
+
+### 浅色与深色主题
+
+默认跟随系统，也可固定选择浅色或深色。以下为同一会话的主题对比。
+
+<p align="center">
+  <img src="docs/screenshots/conversation-light.png" width="240" alt="同一会话：浅色主题">
+  <img src="docs/screenshots/conversation-dark.png" width="240" alt="同一会话：深色主题">
+</p>
 
 截图使用原生组件在 Android 模拟器中生成，数据均为虚构演示数据。[截图说明](docs/screenshots/README.md)
 
@@ -82,14 +91,65 @@ Android 构建方法见 [CONTRIBUTING](CONTRIBUTING.md)；完整连接步骤见[
 
 ## 与原项目的区别
 
-本项目基于整合时的 dsh-mobile 源码开发，具体来源见 [CREDITS](CREDITS.md)，不将差异描述套用于上游后续更新。原项目已经提供消息、工具、文件、通知与远程连接，本项目在此基础上整合电脑插件，并开发独立的原生移动界面。
+本项目基于 **[saya-ch/dsh-mobile](https://github.com/saya-ch/dsh-mobile)** 开发，感谢原作者及贡献者提供移动访问基础。比较以整合时的源码为准，具体来源见 [CREDITS](CREDITS.md)。原项目已有网关、配对、远程连接，以及网页中的消息、文件和通知能力；以下重点列出本项目的原生实现与增强。
 
-- **界面实现**：从原项目 App 的 WebView 网页访问方式，改为 Compose 原生页面；工作区、会话、阅读器和设置均针对手机布局。
-- **阅读体验**：紧凑的过程行、最终结果折叠逻辑、代码复制与折行、原生文件与 diff 查看器。
-- **设备体验**：在家用局域网、在外用隧道，保存连接后手动快速切换；本地置顶、设备前台使用统计、三种主题与设备用量面板。
-- **交互增强**：三类通知、前台会话免打扰、目标浮动栏、Git 分支和发送待确认恢复。
+### 1. 原生界面与交互
 
-本页截图展示上述原生 UI；[原项目 README](https://github.com/saya-ch/dsh-mobile) 可查看原界面。逐项来源、增强范围及更多界面见[功能对照](docs/guide/enhancements.md)。
+使用 Kotlin / Jetpack Compose 重建 Android 界面，从原项目的 WebView 网页访问方式改为原生页面。工作区、会话、输入框和设备设置针对手机操作设计；执行过程更紧凑，回答完成后折叠过程，方便阅读结果。
+
+下图从左到右为工作区、会话、设备设置，合并自三张模拟器截图。
+
+![原生工作区、会话与设备设置](docs/screenshots/native-pages-light.png)
+
+### 2. 原生文件与查看器
+
+在手机上打开电脑文件，使用原生界面查看文件卡片、代码差异和图片。Markdown 中的文件链接由 App 解析并向电脑读取内容，不修改原文档，电脑端仍可照常使用。代码块支持复制和切换折行。
+
+下图从左到右为文件改动列表、diff 查看器、文件类型与图片预览组件。
+
+![原生文件改动、diff 和文件类型预览](docs/screenshots/file-viewers-light.png)
+
+### 3. 多连接通道
+
+同一台电脑可以保存多个连接：**在家用局域网，在外用隧道**，按场景手动切换，不用重复添加设备。连接能力沿用原项目网关，App 增强同一设备下的连接管理，不会自动按优先级切换。
+
+<p align="center"><img src="docs/screenshots/device-settings-light.png" width="300" alt="同一设备保存家中局域网和外出隧道两个连接"></p>
+
+### 4. 设备使用时间
+
+按设备统计 App 在前台使用其页面的时间，展示今天和近 7 天的耗时柱状图，后台运行不计入。数据只保存在手机本地，可在清除缓存时清理。
+
+<p align="center"><img src="docs/screenshots/device-usage-light.png" width="300" alt="设备今天与近七天使用时长"></p>
+
+### 5. 账户余额展示
+
+设备设置中展示充值余额、赠送余额和累计消费。通过 API 获取，可能与官网数据有偏差，实际以官方平台数据为准。累计消费依赖电脑上的桌面账号凭据，无法读取时显示“未知”并提供说明。
+
+<p align="center"><img src="docs/screenshots/device-settings-light.png" width="300" alt="设备设置中的充值余额、赠送余额与累计消费"></p>
+
+### 6. 通知消息
+
+分别提醒 **AI 回答完成、AI 提问确认、权限申请**，使用不同图标与文案，点击通知进入对应会话。正在前台查看该会话时不重复通知。后台送达仍依赖 Android 与厂商的后台权限；华为等设备需要允许后台运行。
+
+以下是模拟器中使用虚构事件生成的系统通知，仅展示通知样式，不代表真机后台送达测试。
+
+<p align="center"><img src="docs/screenshots/notifications-light.png" width="300" alt="回答完成、提问确认和权限申请三类系统通知"></p>
+
+### 7. Git 分支显示与发送待确认恢复
+
+Git 工作区的会话标题下显示当前分支，非 Git 工作区不显示。网络中断导致发送结果不确定时，保留待确认消息，支持核对真实会话及解除待确认后继续操作，避免盲目重复发送。
+
+下图展示会话标题下的 Git 分支；发送待确认是异常恢复能力，不是图中的正常会话状态。
+
+<p align="center"><img src="docs/screenshots/conversation-branch-light.png" width="300" alt="会话标题下展示 main 分支"></p>
+
+### 8. 日志上传与开发排查
+
+诊断日志默认保存在手机本地。需要排查时，在单个设备的设置中上传到该配对电脑，沿用已有连接与鉴权，日志落在电脑的专用临时目录，不依赖云存储。报告编号和保存位置方便开发者及 AI 定位问题；自动上传需单独开启。
+
+<p align="center"><img src="docs/screenshots/device-diagnostics-light.png" width="300" alt="单个设备的日志上传和日志位置复制入口"></p>
+
+查看[日志上传与本地排查](docs/guide/diagnostics.md)及[逐项功能对照](docs/guide/enhancements.md)。所有截图使用虚构演示数据；[原项目 README](https://github.com/saya-ch/dsh-mobile) 可查看原界面。
 
 ## 使用前了解
 

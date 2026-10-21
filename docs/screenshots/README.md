@@ -14,4 +14,19 @@
 
 ## 截图更新边界
 
-当前采集已覆盖日志入口移至单个设备设置页后的布局。`device-diagnostics-dark.png` 展示设备日志区块，`settings-light.png` 展示全局主题与本地数据组件。全局图使用独立组件 fixture，未展示默认设备和会话通知区块，不能当作整个页面的完整清单。采集身份与每张图片哈希保留在 manifest.json；更新时须重新运行当前组件。
+当前采集已覆盖日志入口移至单个设备设置页后的布局。`device-diagnostics-light.png` 展示设备日志区块，`settings-light.png` 展示全局主题与本地数据组件。全局图使用独立组件 fixture，未展示默认设备和会话通知区块，不能当作整个页面的完整清单。采集身份与每张图片哈希保留在 manifest.json；更新时须重新运行当前组件。
+
+## README 图片约定
+
+仓库首页与 npm 包介绍默认使用浅色截图；深色截图只放在主题介绍中，与同一页面的浅色截图成对展示。
+保留原有深色图片供主题资料引用，不在一般功能介绍中混用浅深主题。
+
+`PublicShowcaseTest` 支持 instrumentation 参数 `showcaseTheme=light`，使用生产组件统一采集浅色画面；
+不传该参数时保留原有浅深主题采集流程。新增浅色图片在 manifest.json 中单独记录参数与采集代码哈希。
+npm 介绍使用仓库图片的绝对地址，仓库公开并推送图片后才能在 npm 页面公开加载。
+
+## 合并图与功能截图
+
+`native-pages-light.png` 将工作区、会话和设备设置并排合成一张图片；`file-viewers-light.png` 合并文件改动列表、diff 与文件类型/图片组件。运行 `python3 scripts/docs/compose-screenshots.py`（需要 Pillow）可重建。仅等比缩放和排列，不修改界面内容；来源和合成参数记录在 manifest.json。
+
+多连接使用 `.invalid` 演示地址，分支来自虚构的 Git HEAD 响应。通知截图通过生产通知代码在模拟器上发布三个虚构事件，再截取系统通知栏，结束后移除这些通知；只证明展示效果，不证明后台送达或点击导航。发送待确认恢复目前采用文字说明，没有用正常会话截图冒充异常状态。

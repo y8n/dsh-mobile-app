@@ -81,6 +81,174 @@
       "path": "docs/screenshots/device-diagnostics-dark.png",
       "capture": "39-device-diagnostics-dark.png",
       "sha256": "e8e53f75c96f13da41c2b8ef0e3e98b0149df3f37656b6d636339bc6782211f9"
+    },
+    {
+      "path": "docs/screenshots/sessions-light.png",
+      "capture": "09-sessions-light.png",
+      "sha256": "58007e13a7852a03e3dd1eeeec814f1b97399182df4d99b773796a966fe1f8d4",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "50cc09c991f6da38981d034a749aceff27f4ed4100be873ced74ae22b01e504d"
+    },
+    {
+      "path": "docs/screenshots/connection-light.png",
+      "capture": "06-connection-light.png",
+      "sha256": "95266b4d2a4e6a88cfe7adcdd82f5f13a7b0fb5fda66218f0cd05cad11586ebc",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "50cc09c991f6da38981d034a749aceff27f4ed4100be873ced74ae22b01e504d"
+    },
+    {
+      "path": "docs/screenshots/plugins-light.png",
+      "capture": "13-plugins-light.png",
+      "sha256": "a38c8ae6a5bee61e4398785500e9e91fb4dd1cab7323570fcc5c361a524ce206",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "50cc09c991f6da38981d034a749aceff27f4ed4100be873ced74ae22b01e504d"
+    },
+    {
+      "path": "docs/screenshots/diff-light.png",
+      "capture": "18-diff-light.png",
+      "sha256": "7388aa7ee7f80ddad9f8a4e21975d520b87be1125d7c8662f950cc6856e5f809",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "50cc09c991f6da38981d034a749aceff27f4ed4100be873ced74ae22b01e504d"
+    },
+    {
+      "path": "docs/screenshots/theme-light.png",
+      "capture": "20-theme-dialog-light.png",
+      "sha256": "562cfe444d1bd13e658226606a293b47a340138e1c401eebf723f708627b96cc",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "50cc09c991f6da38981d034a749aceff27f4ed4100be873ced74ae22b01e504d"
+    },
+    {
+      "path": "docs/screenshots/goal-light.png",
+      "capture": "28-goal-light.png",
+      "sha256": "d039aea6c4dd6b64f4f3862c0ca0dd9d2dd0708edf865612018b35b3729690d5",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "50cc09c991f6da38981d034a749aceff27f4ed4100be873ced74ae22b01e504d"
+    },
+    {
+      "path": "docs/screenshots/permission-light.png",
+      "capture": "27-approval-light.png",
+      "sha256": "ff462bdcba023773679b38f0d4304c2c2118a9e4561e6897861c6eb85d770523",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "50cc09c991f6da38981d034a749aceff27f4ed4100be873ced74ae22b01e504d"
+    },
+    {
+      "path": "docs/screenshots/schedules-light.png",
+      "capture": "15-schedules-light.png",
+      "sha256": "67a75ee3b4a80aa9a098d2aa00e4dda36880ef5de326f67d6e0c7508cd43ba7d",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "50cc09c991f6da38981d034a749aceff27f4ed4100be873ced74ae22b01e504d"
+    },
+    {
+      "path": "docs/screenshots/conversation-dark.png",
+      "capture": "11-conversation-dark.png",
+      "sha256": "e534d109d0c9d2b76c75186bde4b12fd0ad55bc2ffd5b6d8eaf759ce6e791d93"
+    },
+    {
+      "path": "docs/screenshots/device-settings-light.png",
+      "capture": "03-device-settings-light.png",
+      "sha256": "16bb7d97c9201faee3a362a5bd4fd2a0d44c89bac2664070e7a13cc3d602d7fa",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "036609d674336934f5909ed7de270e36353f8073bd9b373cf2a519b05d428b46"
+    },
+    {
+      "path": "docs/screenshots/files-light.png",
+      "capture": "17-files-light.png",
+      "sha256": "3036b9dc6078e6cbbef659c1d05e3638749ea82f263597eda4626e2e8024795e",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "036609d674336934f5909ed7de270e36353f8073bd9b373cf2a519b05d428b46"
+    },
+    {
+      "path": "docs/screenshots/file-types-light.png",
+      "capture": "31-file-types-image-light.png",
+      "sha256": "8c54bf4f6ee1d7f3b31d26dc45acfce310763a17af676929b7ea8571c9d356ae",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "036609d674336934f5909ed7de270e36353f8073bd9b373cf2a519b05d428b46"
+    },
+    {
+      "path": "docs/screenshots/conversation-branch-light.png",
+      "capture": "11b-conversation-light.png",
+      "sha256": "206850c74488b8daa3aba8d930cc550e2a8f5abef975ec244efbb87f6bf3afc7",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "036609d674336934f5909ed7de270e36353f8073bd9b373cf2a519b05d428b46"
+    },
+    {
+      "path": "docs/screenshots/notifications-light.png",
+      "capture": "40-notifications-light.png",
+      "sha256": "db6d04a992f109435733487e0395080f3cdc9bf38c628e94fcf5b4eced664c0b",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "036609d674336934f5909ed7de270e36353f8073bd9b373cf2a519b05d428b46"
+    },
+    {
+      "path": "docs/screenshots/device-diagnostics-light.png",
+      "capture": "39-device-diagnostics-light.png",
+      "sha256": "5333ba97d6a21952f535188e92b999027f6d5b1499b63d9f9c46e8787588f49a",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "036609d674336934f5909ed7de270e36353f8073bd9b373cf2a519b05d428b46"
+    },
+    {
+      "path": "docs/screenshots/device-usage-light.png",
+      "capture": "38-device-usage-light.png",
+      "sha256": "e3ade9b30b2857928946aa03942df6a2f24c9387fec5d2096bcb4ce3d6f11973",
+      "captureArguments": {
+        "showcaseTheme": "light"
+      },
+      "captureTestSha256": "036609d674336934f5909ed7de270e36353f8073bd9b373cf2a519b05d428b46"
+    },
+    {
+      "path": "docs/screenshots/native-pages-light.png",
+      "sha256": "ca0887786a11ff84038573135fe6ee113810cb5ee23c290ad14d141575ae7a35",
+      "composition": {
+        "sources": [
+          "docs/screenshots/workspaces-light.png",
+          "docs/screenshots/conversation-light.png",
+          "docs/screenshots/device-settings-light.png"
+        ],
+        "panelWidth": 360,
+        "gap": 16,
+        "operations": "resize proportionally and join horizontally; no UI content changes"
+      }
+    },
+    {
+      "path": "docs/screenshots/file-viewers-light.png",
+      "sha256": "1c2e1253870ac293917a5904e9ba66c4114872311f5b3ca907c5e2b63b456fd7",
+      "composition": {
+        "sources": [
+          "docs/screenshots/files-light.png",
+          "docs/screenshots/diff-light.png",
+          "docs/screenshots/file-types-light.png"
+        ],
+        "panelWidth": 360,
+        "gap": 16,
+        "operations": "resize proportionally and join horizontally; no UI content changes"
+      }
     }
   ],
   "captureTestSourceCommit": "4dca6a4c78f80b9088ff30a395e1329c635594f8",
