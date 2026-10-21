@@ -8,7 +8,7 @@ These rules apply to the entire repository. Preserve third-party attribution, li
 - Android and desktop plugin are independent components in one repository. Do not force their version numbers to match.
 - Every different Android APK needs a higher versionName and versionCode before building. Never overwrite a different artifact under the same version.
 - After a successful build, explain changes since the last successful build, include actionable acceptance steps, and distinguish local, emulator and real-device coverage. Store build identity and evidence; do not inherit old verification results.
-- Never publish a GitHub Release, change repository visibility, rewrite Git history or force push without explicit authorization. Current work is private open-source preparation.
+- Never publish a GitHub Release, change repository visibility, rewrite Git history or force push without explicit authorization.
 - npm releases use the manual GitHub Actions + npm Trusted Publishing workflow. Ordinary pushes must not publish packages. Follow docs/development/publishing.md; push and verify the source SHA before dispatching. A request to commit alone does not authorize packaging or publishing.
 - Do not directly publish desktop/mobile-extension: its private manifest protects the source directory. Publish only the assembled and verified tarball; never overwrite a version already present on npm.
 - Install and maintain one desktop plugin only. Reuse the original dsh-mobile gateway/auth/event capabilities; preserve enhanced attachment, search, recovery, schedules, notifications and account APIs. Do not remove an existing service before validating its replacement.
