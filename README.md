@@ -4,7 +4,7 @@
 
 **把电脑上的 DeepSeek Harness，带到 Android 手机上。**
 
-[下载 Android App](https://github.com/y8n/dsh-mobile-app/releases) · [快速开始](docs/guide/getting-started.md) · [功能与界面](#功能与界面) · [与原项目的区别](#与原项目的区别) · [参与开发](CONTRIBUTING.md)
+[下载 Android App](https://github.com/y8n/dsh-mobile-app/releases) · [快速开始](docs/guide/getting-started.md) · [连接教程](#连接方式与详细教程) · [功能与界面](#功能与界面) · [与原项目的区别](#与原项目的区别) · [参与开发](CONTRIBUTING.md)
 
 </div>
 
@@ -88,6 +88,26 @@ DSH Mobile App 是 DeepSeek Harness 的**非官方原生 Android 客户端**，�
 **电脑只需一个移动访问插件。** 整合包已包含原项目网关能力，已有 `dsh-mobile` 用户请先阅读[迁移步骤](docs/guide/getting-started.md)，保留配对与配置，避免同时启用两个网关。
 
 Android 构建方法见 [CONTRIBUTING](CONTRIBUTING.md)；完整连接步骤见[使用指南](docs/guide/getting-started.md)。
+
+## 连接方式与详细教程
+
+**在家用局域网，在外用隧道。** 电脑端连接配置沿用 [saya-ch/dsh-mobile 的连接教程](https://github.com/saya-ch/dsh-mobile#连接教程)，感谢原作者维护详细图文说明。按你的网络环境选择：
+
+| 连接方式 | 使用场景 | 原作者详细教程 |
+| --- | --- | --- |
+| 局域网 | 手机和电脑在同一 Wi-Fi、以太网或热点内 | [配置步骤](https://github.com/saya-ch/dsh-mobile#局域网访问) |
+| cpolar | 通过 cpolar 账号配置外网入口 | [配置步骤](https://github.com/saya-ch/dsh-mobile#远程访问) |
+| Cloudflare 快速 / 命名隧道 | 临时入口或使用自己的域名 | [配置步骤](https://github.com/saya-ch/dsh-mobile/blob/main/docs/CLOUDFLARE_TUNNEL.md) |
+| Tailscale Funnel | 通过 Tailscale 登录与 Funnel 授权开放入口 | [配置步骤](https://github.com/saya-ch/dsh-mobile#远程访问) |
+| 自建 FRP | 使用自己的 VPS 部署远程通道 | [配置步骤](https://github.com/saya-ch/dsh-mobile/blob/main/docs/SELF_HOSTED_FRP.md) |
+| 接入已有 frps | 已经有 FRP 服务，希望复用现有部署 | [配置步骤](https://github.com/saya-ch/dsh-mobile/blob/main/docs/ATTACH_EXISTING_FRPS.md) |
+| 自有反向代理 | 已经有公开 HTTPS 代理入口 | [配置步骤](https://github.com/saya-ch/dsh-mobile/blob/main/docs/SELF_HOSTED_ORIGIN.md) |
+
+**教程使用范围：** 参考原项目的电脑端网络配置步骤即可。安装的电脑插件仍是本项目的 `@dsh-mobile-app/desktop-extension`，手机也使用本项目 App，不需要再安装原插件或原 App。上游文档可能描述比本项目整合版本更新的能力，请以当前插件面板和[兼容说明](docs/版本兼容说明.md)为准。
+
+电脑端通道就绪后，在本 App 填写该入口的 **HTTPS 地址与配对密钥**。给已有电脑添加另一个通道，在 **设备设置 → 连接方式 → ＋** 中添加；在同一位置手动选择家中局域网或外出隧道。详细步骤见[本 App 首次配对、添加通道与切换指南](docs/guide/getting-started.md#建立手机与电脑的连接)。原 App 的自动发现、扫码及自动连接步骤不直接适用于本 App。
+
+遇到反复重连，可参考原作者的[慢链路排查指南](https://github.com/saya-ch/dsh-mobile/blob/main/docs/SLOW_CONNECTIONS.md)，并按本项目的[诊断日志指南](docs/guide/diagnostics.md)收集手机日志。
 
 ## 与原项目的区别
 

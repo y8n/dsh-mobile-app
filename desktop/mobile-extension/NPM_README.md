@@ -18,6 +18,26 @@ Schedule/query modules are hash checked; other host versions are not automatical
 The existing Android baseline is 0.1.1-alpha.20, but this npm beta does not distribute the personal test APK.
 Phone background notifications still depend on Android/OEM background permission; this is not a system push guarantee.
 
+## Connection setup guides
+
+Use LAN at home and a remote tunnel away from home. The desktop network setup is inherited from **saya-ch/dsh-mobile**; see the original author’s [connection tutorial](https://github.com/saya-ch/dsh-mobile#连接教程).
+
+| Connection | Detailed upstream guide |
+| --- | --- |
+| LAN / same Wi-Fi or hotspot | [LAN setup](https://github.com/saya-ch/dsh-mobile#局域网访问) |
+| cpolar | [Remote access setup](https://github.com/saya-ch/dsh-mobile#远程访问) |
+| Cloudflare quick / named tunnel | [Cloudflare Tunnel](https://github.com/saya-ch/dsh-mobile/blob/main/docs/CLOUDFLARE_TUNNEL.md) |
+| Tailscale Funnel | [Remote access setup](https://github.com/saya-ch/dsh-mobile#远程访问) |
+| Self-hosted FRP | [Deploy FRP](https://github.com/saya-ch/dsh-mobile/blob/main/docs/SELF_HOSTED_FRP.md) |
+| Existing frps | [Attach an existing server](https://github.com/saya-ch/dsh-mobile/blob/main/docs/ATTACH_EXISTING_FRPS.md) |
+| Your own HTTPS reverse proxy | [Reverse proxy setup](https://github.com/saya-ch/dsh-mobile/blob/main/docs/SELF_HOSTED_ORIGIN.md) |
+
+Follow the upstream **desktop network configuration**, while continuing to use this package and this project’s Android app. Do not install a second gateway. Upstream documentation may describe newer capabilities; use the options available in your installed plugin and consult [compatibility](https://github.com/y8n/dsh-mobile-app/blob/main/docs/版本兼容说明.md).
+
+Pair this app using the selected endpoint’s HTTPS address and pairing key. Add another route under the existing computer’s **Device settings → Connections → +**, then select the route manually. Follow [this app’s pairing and switching guide](https://github.com/y8n/dsh-mobile-app/blob/main/docs/guide/getting-started.md#建立手机与电脑的连接); upstream app discovery, scanning and automatic-connection instructions do not directly apply.
+
+For repeated reconnects, see the upstream [slow-connection guide](https://github.com/saya-ch/dsh-mobile/blob/main/docs/SLOW_CONNECTIONS.md) and this project’s [phone diagnostics guide](https://github.com/y8n/dsh-mobile-app/blob/main/docs/guide/diagnostics.md).
+
 ## Scope and limits
 
 This beta validates npm distribution. It does not imply full regression on all host platforms or Huawei phones.

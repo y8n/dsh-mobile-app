@@ -31,6 +31,18 @@
 - **在家连接：[局域网访问教程](https://github.com/saya-ch/dsh-mobile#局域网访问)**。手机与电脑接入同一可信局域网，在电脑的“移动访问 → 局域网”中开启访问并生成配对信息。
 - **外出连接：[远程访问教程](https://github.com/saya-ch/dsh-mobile#远程访问)**。在电脑的“移动访问 → 远程”中配置隧道，等通道就绪后生成该入口的配对信息。账号、域名等前置条件与各通道操作见原教程。
 
+#### 按连接方式查看详细教程
+
+| 连接方式 | 使用场景 | 原作者详细教程 |
+| --- | --- | --- |
+| 局域网 | 手机和电脑在同一 Wi-Fi、以太网或热点内 | [配置步骤](https://github.com/saya-ch/dsh-mobile#局域网访问) |
+| cpolar | 通过 cpolar 账号配置外网入口 | [配置步骤](https://github.com/saya-ch/dsh-mobile#远程访问) |
+| Cloudflare 快速 / 命名隧道 | 临时入口或使用自己的域名 | [配置步骤](https://github.com/saya-ch/dsh-mobile/blob/main/docs/CLOUDFLARE_TUNNEL.md) |
+| Tailscale Funnel | 通过 Tailscale 登录与 Funnel 授权开放入口 | [配置步骤](https://github.com/saya-ch/dsh-mobile#远程访问) |
+| 自建 FRP | 使用自己的 VPS 部署远程通道 | [配置步骤](https://github.com/saya-ch/dsh-mobile/blob/main/docs/SELF_HOSTED_FRP.md) |
+| 接入已有 frps | 已经有 FRP 服务，希望复用现有部署 | [配置步骤](https://github.com/saya-ch/dsh-mobile/blob/main/docs/ATTACH_EXISTING_FRPS.md) |
+| 自有反向代理 | 已经有公开 HTTPS 代理入口 | [配置步骤](https://github.com/saya-ch/dsh-mobile/blob/main/docs/SELF_HOSTED_ORIGIN.md) |
+
 这里只复用原教程的**电脑端网络配置步骤**：安装的插件仍是本项目的 `@dsh-mobile-app/desktop-extension`，手机也使用本项目 App，无需再安装老插件或下载其 App。上游 README 会持续更新，通道是否可用以当前整合插件面板为准；本项目 App 的添加设备操作见下文。
 
 ### 2. 在手机端首次添加设备
