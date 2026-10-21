@@ -36,7 +36,7 @@ async function preflight() {
   const {version,sha,mode}=inputs();
   assert.equal(execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim(),sha,'Source SHA mismatch');
   assert.equal(execFileSync('git',['status','--porcelain'],{cwd:root,encoding:'utf8'}).trim(),'','Uncommitted source changes');
-  const p=await json('desktop/mobile-extension/package.json');assert.equal(p.name,packageName);assert.equal(p.version,version);assert.equal(p.private,true);
+  const p=await json('desktop/mobile-extension/package.json');assert.equal(p.name,packageName);if(mode==='publish')assert.equal(p.version,version);assert.equal(p.private,true);
   if(process.env.GITHUB_ACTIONS==='true'){
     assert.equal(process.env.GITHUB_REPOSITORY,'y8n/dsh-mobile-app');
     assert.equal(process.env.GITHUB_REF,'refs/heads/main','Dispatch the workflow from main');
