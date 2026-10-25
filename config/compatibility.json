@@ -12,9 +12,9 @@
     "directSourcePublicationAllowed": false,
     "publicPackageName": "@dsh-mobile-app/desktop-extension",
     "publicTag": "beta",
-    "sourceHasUnreleasedChanges": true,
+    "sourceHasUnreleasedChanges": false,
     "nextPackageRequiresVersionBump": true,
-    "publishedVersion": "0.2.0"
+    "publishedVersion": "0.2.1-beta.1"
   },
   "baselineHost": "DeepSeek Harness Desktop 0.2.1-rc.3",
   "supportScope": "Recorded baseline only; untested combinations have no support claim.",
@@ -32,7 +32,8 @@
   ],
   "evidence": [
     "config/releases/npm/0.2.0-beta.1.json",
-    "config/releases/npm/0.2.0.json"
+    "config/releases/npm/0.2.0.json",
+    "config/releases/npm/0.2.1-beta.1.json"
   ],
   "projectRelease": {
     "series": "0.2.0",
