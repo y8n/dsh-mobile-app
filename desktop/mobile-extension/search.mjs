@@ -1,3 +1,4 @@
+import { isOperatorPeer } from './operator-admission.mjs';
 import { createRequire } from 'node:module';
 import { readFileSync } from 'node:fs';
 import { createHash, randomUUID } from 'node:crypto';
@@ -31,12 +32,12 @@ export async function apply(ctx, config) {
   class MobileSearch extends protocol.TypertRemoteService {
     constructor() { super(ctx, 'mobileSearch'); for (const init of initializers) init.call(this); }
     async capabilities() {
-      if (!(this.ctx.invocation?.peer instanceof connection.OperatorPeer)) throw new protocol.RemoteError('access-denied', 'access-denied', {});
+      if (!(isOperatorPeer(this.ctx.invocation?.peer, connection))) throw new protocol.RemoteError('access-denied', 'access-denied', {});
       return { version: 1, fullText: engine.config.openAt !== 'never', promptLookup: true, workspaceSearch: true, workspaceList: true, queryModuleSha256,
         readiness: engine.config.openAt, controllerContinuityToken: controller[controllerToken], implementation };
     }
     async lookupPrompt(request, signal) {
-      if (!(this.ctx.invocation?.peer instanceof connection.OperatorPeer)) throw new protocol.RemoteError('access-denied', 'access-denied', {});
+      if (!(isOperatorPeer(this.ctx.invocation?.peer, connection))) throw new protocol.RemoteError('access-denied', 'access-denied', {});
       if (stop.signal.aborted) throw new protocol.RemoteError('service-stopping', 'service-stopping', {});
       if (active.size >= 4) throw new protocol.RemoteError('lookup-busy', 'lookup-busy', {});
       const combined = AbortSignal.any([stop.signal, AbortSignal.timeout(15_000), ...(signal ? [signal] : [])]);
@@ -49,7 +50,7 @@ export async function apply(ctx, config) {
       } finally { active.delete(pending); }
     }
     async listWorkspace(request, signal) {
-      if (!(this.ctx.invocation?.peer instanceof connection.OperatorPeer)) throw new protocol.RemoteError('access-denied', 'access-denied', {});
+      if (!(isOperatorPeer(this.ctx.invocation?.peer, connection))) throw new protocol.RemoteError('access-denied', 'access-denied', {});
       if (stop.signal.aborted) throw new protocol.RemoteError('service-stopping', 'service-stopping', {});
       if (active.size >= 4) throw new protocol.RemoteError('list-busy', 'list-busy', {});
       if (typeof controller.listState?.summaryFor !== 'function' || typeof controller.listState?.summarizeCold !== 'function') throw new protocol.RemoteError('list-unavailable', 'list-unavailable', {});
@@ -60,7 +61,7 @@ export async function apply(ctx, config) {
       finally { active.delete(pending); }
     }
     async searchWorkspace(request, signal) {
-      if (!(this.ctx.invocation?.peer instanceof connection.OperatorPeer)) throw new protocol.RemoteError('access-denied', 'access-denied', {});
+      if (!(isOperatorPeer(this.ctx.invocation?.peer, connection))) throw new protocol.RemoteError('access-denied', 'access-denied', {});
       if (stop.signal.aborted) throw new protocol.RemoteError('service-stopping', 'service-stopping', {});
       if (active.size >= 4) throw new protocol.RemoteError('search-busy', 'search-busy', {});
       const combined = AbortSignal.any([stop.signal, AbortSignal.timeout(30_000), ...(signal ? [signal] : [])]);

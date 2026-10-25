@@ -6,7 +6,7 @@
   },
   "desktop": {
     "packageName": "@dsh-mobile-app/desktop-extension",
-    "version": "0.2.0",
+    "version": "0.2.1",
     "sourcePackagePrivate": true,
     "publicBetaStatus": "published",
     "directSourcePublicationAllowed": false,
@@ -14,9 +14,9 @@
     "publicTag": "latest",
     "sourceHasUnreleasedChanges": false,
     "nextPackageRequiresVersionBump": true,
-    "publishedVersion": "0.2.0"
+    "publishedVersion": "0.2.1"
   },
-  "baselineHost": "DeepSeek Harness Desktop 0.2.0-rc.2",
+  "baselineHost": "DeepSeek Harness Desktop 0.2.1-rc.3",
   "supportScope": "Recorded baseline only; untested combinations have no support claim.",
   "requiredRpcReferences": [
     "mobileSchedule/capabilities",
@@ -32,7 +32,9 @@
   ],
   "evidence": [
     "config/releases/npm/0.2.0-beta.1.json",
-    "config/releases/npm/0.2.0.json"
+    "config/releases/npm/0.2.0.json",
+    "config/releases/npm/0.2.1-beta.1.json",
+    "config/releases/npm/0.2.1.json"
   ],
   "projectRelease": {
     "series": "0.2.0",

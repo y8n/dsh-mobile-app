@@ -45,7 +45,11 @@
     - id: mobile-schedule
       name: '@dsh-mobile-app/desktop-extension'
       config:
-        expectedScheduleHash: 9d728e13edb7e7f954d493ece3aaf4c90c3bcb6f888b41efb3ae21b09384ae38
+        expectedScheduleHashes:
+          - 9d728e13edb7e7f954d493ece3aaf4c90c3bcb6f888b41efb3ae21b09384ae38
+          - 022b9f191b6ca0f4b0f26625afc49f375933068a42712c0a75e94e439d7e6d0e
+    - id: mobile-notifications
+      name: '@dsh-mobile-app/desktop-extension/notification-feed.mjs'
     - id: mobile-attachments
       name: '@dsh-mobile-app/desktop-extension/attachments.mjs'
     - id: mobile-account-summary

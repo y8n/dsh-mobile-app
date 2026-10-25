@@ -6,7 +6,7 @@ function fixture(count = 205) {
   const workspace = { sessionIds: ids }; const read = [];
   const registry = { get: id => id === 'own' ? workspace : undefined };
   const engine = { listSessions: async () => [...ids, 'foreign'].map(id => ({ header: { id, cwd: '/owned' } })) };
-  const summaries = { summarizeCold: header => { read.push(header.id); return { sessionId: header.id, running: false, blank: false, updatedAt: 1, projections: { values: { title: header.id, body: 'x'.repeat(3 * 1024 * 1024) } } }; } };
+  const summaries = { summarizeCold: ({ header }) => { read.push(header.id); return { sessionId: header.id, running: false, blank: false, updatedAt: 1, projections: { values: { title: header.id, body: 'x'.repeat(3 * 1024 * 1024) } } }; } };
   return { ids, workspace, read, registry, engine, summaries, sessions: new Map() };
 }
 const list = (f, request, signal) => listWorkspace(f.registry, f.engine, f.sessions, f.summaries, request, signal);
