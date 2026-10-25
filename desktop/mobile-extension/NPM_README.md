@@ -13,10 +13,16 @@ For reproducible installation, append `@<version>` using the exact version speci
 Enable mobile access and configure your own LAN or remote connection in the plugin panel, then pair your phone.
 No account keys, certificates, device pairing or personal tunnel settings are included in this package.
 
-The recorded host baseline is DeepSeek Harness Desktop 0.2.0-rc.2, Node ^22.19.0 or >=24.
+The recorded host baseline is DeepSeek Harness Desktop 0.2.1-rc.3, Node ^22.19.0 or >=24.
 Schedule/query modules are hash checked; other host versions are not automatically supported.
 Download the Android app separately from [GitHub Releases](https://github.com/y8n/dsh-mobile-app/releases) and follow the release compatibility notes.
 Phone background notifications still depend on Android/OEM background permission; this is not a system push guarantee.
+
+## Version 0.2.1
+
+This desktop-only update fixes owner authentication and cold-session pagination for the recorded host baseline. Notifications now load independently of the schedule adapter, and the verified schedule module is supported while unknown module hashes remain rejected. Existing Android 0.2.1 users do not need a new APK for these fixes.
+
+Install `PUBLISH_PACKAGE_NAME@0.2.1` for this exact release, or use the default `latest` channel. Keep existing pairing and certificates, then reconnect the phone. Background notification delivery still requires the phone's system permissions.
 
 ## Connection setup guides
 

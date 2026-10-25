@@ -23,6 +23,8 @@ DSH Mobile App 是 DeepSeek Harness 的**非官方原生 Android 客户端**，�
 
 前往 **[GitHub Releases 下载 Android App](https://github.com/y8n/dsh-mobile-app/releases)**，查看安装包、更新说明及配套插件要求。Android App 与电脑插件分别发布，兼容边界见[兼容说明](docs/版本兼容说明.md)。
 
+电脑插件正式版 **0.2.1** 可在 DSH 插件管理中通过 npm 官方源安装：`@dsh-mobile-app/desktop-extension@0.2.1`。本次修复新版宿主下的会话列表、电脑日志上传和通知接口；已有 Android 0.2.1 无需更新 APK。升级后重新连接手机即可，详见[插件更新说明](desktop/mobile-extension/CHANGELOG.md)。
+
 ## 功能与界面
 
 ### 在手机上继续工作

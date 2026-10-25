@@ -6,13 +6,13 @@
   },
   "desktop": {
     "packageName": "@dsh-mobile-app/desktop-extension",
-    "version": "0.2.1-beta.1",
+    "version": "0.2.1",
     "sourcePackagePrivate": true,
     "publicBetaStatus": "published",
     "directSourcePublicationAllowed": false,
     "publicPackageName": "@dsh-mobile-app/desktop-extension",
-    "publicTag": "beta",
-    "sourceHasUnreleasedChanges": false,
+    "publicTag": "latest",
+    "sourceHasUnreleasedChanges": true,
     "nextPackageRequiresVersionBump": true,
     "publishedVersion": "0.2.1-beta.1"
   },
