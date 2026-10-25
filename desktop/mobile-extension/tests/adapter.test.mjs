@@ -5,7 +5,7 @@ import { join } from 'node:path';
 import { tmpdir } from 'node:os';
 import { apply } from '../index.mjs';
 
-for (const config of [undefined, { expectedScheduleHash: '0'.repeat(64) }]) {
+for (const config of [undefined, { expectedScheduleHash: '0'.repeat(64) }, { expectedScheduleHashes: [] }, { expectedScheduleHashes: ['0'.repeat(64)] }, { expectedScheduleHashes: ['invalid'] }]) {
   test(config ? 'unknown Schedule build is refused before touching core services' : 'missing Schedule pin is refused before touching core services', async () => {
     const root = await mkdtemp(join(tmpdir(), 'dsh-mobile-pin-test-'));
     try {

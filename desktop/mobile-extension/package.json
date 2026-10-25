@@ -1,11 +1,12 @@
 {
   "name": "@dsh-mobile-app/desktop-extension",
-  "version": "0.2.0",
+  "version": "0.2.1-beta.1",
   "private": true,
   "type": "module",
   "main": "./index.mjs",
   "files": [
     "index.mjs",
+    "operator-admission.mjs",
     "notification-feed.mjs",
     "notification-copy.mjs",
     "schedule-engine.mjs",

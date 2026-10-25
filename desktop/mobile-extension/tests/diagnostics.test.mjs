@@ -29,3 +29,11 @@ test('all remote operations require an authenticated operator',async()=>{
  await assert.rejects(service.upload(report()),/access-denied/);await assert.rejects(service.capabilities(),/access-denied/);assert.equal(writes,0);
  ctx.invocation.peer=new Peer();assert.equal((await service.capabilities()).localOnly,true);await service.upload(report());assert.equal(writes,1);
 });
+
+test('current Peer owner can upload while restricted principals cannot write', async () => {
+ let writes=0;class Peer { constructor(kind) { this.principal={kind}; } }class RemoteError extends Error {}
+ const ctx={invocation:{peer:new Peer('agent')}};
+ const service=registerDiagnostics(ctx,{connection:{Peer},protocol:{RemoteError,Remote:()=>{},TypertRemoteService:class{constructor(ctx){this.ctx=ctx;}}}},{upload:async()=>{writes++;return {accepted:1};}});
+ await assert.rejects(service.upload(report()),/access-denied/);assert.equal(writes,0);
+ ctx.invocation.peer=new Peer('owner');await service.upload(report());assert.equal(writes,1);
+});

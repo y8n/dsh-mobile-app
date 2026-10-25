@@ -31,7 +31,7 @@ export async function listWorkspace(registry, engine, sessions, summaries, reque
     allowed.delete(id);
     const live = sessions.get(id);
     if (!live && record.header.cwd === undefined) continue;
-    const summary = live ? summaries.summaryFor(live) : summaries.summarizeCold(record.header);
+    const summary = live ? summaries.summaryFor(live) : summaries.summarizeCold(record);
     const title = summary.title ?? summary.projections?.values?.title;
     items.push({ sessionId: id, title: typeof title === 'string' ? [...title].slice(0, 512).join('') : null,
       running: summary.running === true, blank: summary.blank === true,

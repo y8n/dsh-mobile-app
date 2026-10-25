@@ -1,3 +1,4 @@
+import { isOperatorPeer } from './operator-admission.mjs';
 // Display-only account data. Credentials remain inside the DSH Host credential service.
 import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
@@ -150,7 +151,7 @@ export async function apply(ctx) {
   class MobileAccount extends protocol.TypertRemoteService {
     constructor() { super(ctx,'mobileAccount'); for(const initialize of initializers) initialize.call(this); }
     async summary() {
-      if (!(this.ctx.invocation?.peer instanceof connection.OperatorPeer)) throw new protocol.RemoteError('access-denied','access-denied',{});
+      if (!(isOperatorPeer(this.ctx.invocation?.peer, connection))) throw new protocol.RemoteError('access-denied','access-denied',{});
       return reader.read();
     }
   }

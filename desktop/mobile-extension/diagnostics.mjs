@@ -1,3 +1,4 @@
+import { isOperatorPeer } from './operator-admission.mjs';
 // SPDX-License-Identifier: Apache-2.0
 import { tmpdir } from 'node:os';
 import { resolve, join, dirname } from 'node:path';
@@ -76,7 +77,7 @@ export function registerDiagnostics(ctx,{protocol,connection},store) {
   const initializers=[];
   class MobileDiagnostics extends protocol.TypertRemoteService {
     constructor(){super(ctx,'mobileDiagnostics');for(const init of initializers)init.call(this);}
-    operator(){if(!(this.ctx.invocation?.peer instanceof connection.OperatorPeer))throw new protocol.RemoteError('access-denied','access-denied',{});}
+    operator(){if(!(isOperatorPeer(this.ctx.invocation?.peer, connection)))throw new protocol.RemoteError('access-denied','access-denied',{});}
     async capabilities(){this.operator();return {version:1,schema:2,maxEvents:500,localOnly:true};}
     async upload(report){this.operator();try{return await store.upload(report);}catch(error){const code=/^diagnostics-[a-z-]+$/.test(error.message)?error.message:'diagnostics-storage-unavailable';throw new protocol.RemoteError(code,code,{});}}
   }

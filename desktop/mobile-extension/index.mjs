@@ -1,4 +1,4 @@
-import { registerNotifications } from './notification-feed.mjs';
+import { isOperatorPeer } from './operator-admission.mjs';
 import { createRequire } from 'node:module';
 import { pathToFileURL } from 'node:url';
 import { readFile } from 'node:fs/promises';
@@ -20,7 +20,8 @@ export async function apply(ctx, config) {
   const require = createRequire(ctx.profileContext.installAnchor);
   const schedulePath = require.resolve('@deepseek-ai/dsh-schedule');
   const actualHash = createHash('sha256').update(await readFile(schedulePath)).digest('hex');
-  if (!/^[a-f0-9]{64}$/.test(config?.expectedScheduleHash ?? '') || config.expectedScheduleHash !== actualHash) throw new Error('mobile-schedule: unsupported schedule module hash');
+  const pins = config?.expectedScheduleHashes ?? [config?.expectedScheduleHash];
+  if (!Array.isArray(pins) || pins.length === 0 || pins.some(pin => typeof pin !== 'string' || !/^[a-f0-9]{64}$/.test(pin)) || !pins.includes(actualHash)) throw new Error('mobile-schedule: unsupported schedule module hash');
   const load = spec => import(pathToFileURL(require.resolve(spec)).href);
   const [protocol, storage, schedule, llm, schema, connection] = await Promise.all([
     load('@deepseek-ai/dsh-typert-protocol'), load('@deepseek-ai/dsh-storage-domain'), load('@deepseek-ai/dsh-schedule'),
@@ -50,7 +51,7 @@ export async function apply(ctx, config) {
     tasks: domain.table('tasks'), retention: original.retention,
     serialize: work => original.serialize(work), inspect: sid => ctx.sessionController.inspect(sid),
     changed: () => { original.emitChanged(); original.runtime?.requestDrive(); },
-    assertRunnable: async sid => assertUnarchived(await lineage(sid), ctx.workspaceRegistry.archivedSessionIds),
+    assertRunnable: async sid => { assertUnarchived(await lineage(sid), ctx.workspaceRegistry.archivedSessionIds); if (original.reminderTargetRefusal?.(sid) !== undefined) throw new ScheduleFault('session-unavailable'); },
     resolve: async sid => { const result = await ctx.sessionController.resolveAgent(sid); if ('error' in result) throw new ScheduleFault('session-unavailable'); lineages.set(result.agent, await lineage(sid)); return result.agent; },
     hasMessage: (agent, mid) => agent.session.snapshotEvents().some(e => e.type === 'agent/inbox/spliced' && e.data.inserted.some(m => m.id === mid)),
     send: (agent, message) => { const chain = lineages.get(agent); if (!chain) throw new ScheduleFault('session-unavailable'); assertUnarchived(chain, ctx.workspaceRegistry.archivedSessionIds); agent.followup(message); }, flush: agent => ctx.sessions.flush(agent.session),
@@ -72,7 +73,7 @@ export async function apply(ctx, config) {
   const initializers = [];
   class MobileScheduleService extends protocol.TypertRemoteService {
     constructor() { super(ctx, 'mobileSchedule'); for (const initialize of initializers) initialize.call(this); }
-    operator() { if (!(this.ctx.invocation?.peer instanceof connection.OperatorPeer)) throw new protocol.RemoteError('access-denied', 'Operator admission is required', {}); }
+    operator() { if (!(isOperatorPeer(this.ctx.invocation?.peer, connection))) throw new protocol.RemoteError('access-denied', 'Operator admission is required', {}); }
     async call(operation, request) { this.operator(); return track(async () => { try { return await engine.operate(operation, request); } catch (error) { throw remoteFault(error); } }); }
     async capabilities() { this.operator(); return { version: 1, scheduleModuleSha256: actualHash, lifecycle: true, durableRequestIdentity: true, archiveAdmission: true, implementation }; }
     async catalog() { this.operator(); return track(() => engine.catalog()); }
@@ -90,5 +91,4 @@ export async function apply(ctx, config) {
       addInitializer: initialize => initializers.push(initialize) });
   }
   new MobileScheduleService();
-  await registerNotifications(ctx, { protocol, connection, storage, schema });
 }

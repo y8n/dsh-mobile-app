@@ -1,3 +1,4 @@
+import { isOperatorPeer } from './operator-admission.mjs';
 import { createRequire } from 'node:module';
 import { pathToFileURL } from 'node:url';
 import { AttachmentReader, AttachmentFault, RANGE_LIMIT, OBJECT_LIMIT, attachmentEngineSha256 } from './attachment-engine.mjs';
@@ -17,7 +18,7 @@ export async function apply(ctx) {
   const initializers = [];
   class MobileAttachments extends protocol.TypertRemoteService {
     constructor() { super(ctx, 'mobileAttachments'); for (const init of initializers) init.call(this); }
-    operator() { if (!(this.ctx.invocation?.peer instanceof connection.OperatorPeer)) throw new protocol.RemoteError('access-denied', 'access-denied', {}); }
+    operator() { if (!(isOperatorPeer(this.ctx.invocation?.peer, connection))) throw new protocol.RemoteError('access-denied', 'access-denied', {}); }
     async capabilities() { this.operator(); return { version: 1, sessionBound: true, maxRangeBytes: RANGE_LIMIT, maxObjectBytes: OBJECT_LIMIT, implementation }; }
     async read(method, request, signal) {
       this.operator(); if (stopping) throw new protocol.RemoteError('service-stopping', 'service-stopping', {});

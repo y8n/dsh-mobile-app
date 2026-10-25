@@ -1,3 +1,6 @@
+import { createRequire } from 'node:module';
+import { pathToFileURL } from 'node:url';
+import { isOperatorPeer } from './operator-admission.mjs';
 import { randomUUID, createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { sessionTitle, finalPreview, questionPreview, permissionPreview } from './notification-copy.mjs';
@@ -100,18 +103,31 @@ export async function registerNotifications(ctx, { protocol, connection, storage
   class Notifications extends protocol.TypertRemoteService {
     constructor() { super(ctx, 'mobileNotifications'); for (const init of initializers) init.call(this); }
     async details(request) {
-      if (!(this.ctx.invocation?.peer instanceof connection.OperatorPeer)) throw new protocol.RemoteError('access-denied', 'access-denied', {});
+      if (!(isOperatorPeer(this.ctx.invocation?.peer, connection))) throw new protocol.RemoteError('access-denied', 'access-denied', {});
       if (!request || Object.keys(request).some(k => !['id', 'sessionId'].includes(k)) || ![request.id, request.sessionId].every(v => typeof v === 'string' && v.length > 0 && v.length <= 512)) throw new protocol.RemoteError('invalid-request', 'invalid-request', {});
       const value = feed.details(request.id, request.sessionId);
       if (!value) throw new protocol.RemoteError('notification-not-found', 'notification-not-found', {});
       return value;
     }
     async poll(request) {
-      if (!(this.ctx.invocation?.peer instanceof connection.OperatorPeer)) throw new protocol.RemoteError('access-denied', 'access-denied', {});
+      if (!(isOperatorPeer(this.ctx.invocation?.peer, connection))) throw new protocol.RemoteError('access-denied', 'access-denied', {});
       try { return { ...feed.read(request), implementation }; } catch { throw new protocol.RemoteError('invalid-request', 'invalid-request', {}); }
     }
   }
   protocol.Remote(Notifications.prototype.poll, { kind: 'method', name: 'poll', static: false, private: false, addInitializer: init => initializers.push(init) });
   protocol.Remote(Notifications.prototype.details, { kind: 'method', name: 'details', static: false, private: false, addInitializer: init => initializers.push(init) });
   new Notifications();
+}
+
+// Notifications have no dependency on the private Schedule bridge or its version pin.
+export const name = 'mobile-notifications';
+export const inject = ['storageDomain', 'sessions', 'sessionController', 'profileContext'];
+export async function apply(ctx) {
+  const require = createRequire(ctx.profileContext.installAnchor);
+  const load = name => import(pathToFileURL(require.resolve(name)).href);
+  const [protocol, connection, storage, schema] = await Promise.all([
+    load('@deepseek-ai/dsh-typert-protocol'), load('@deepseek-ai/dsh-client-connection'),
+    load('@deepseek-ai/dsh-storage-domain'), load('zod'),
+  ]);
+  await registerNotifications(ctx, { protocol, connection, storage, schema });
 }
